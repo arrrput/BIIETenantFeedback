@@ -11,7 +11,7 @@
         android:layout_height="100dp"
         android:layout_gravity="center"
         android:padding="10dp"
-        android:src="@drawable/" />
+        android:src="@drawable/logo"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -42,6 +42,7 @@
         android:text="Password"
         android:paddingBottom="5dp"
         android:textColor="#228B22"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -56,14 +57,16 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/ic_baseline_password"/>
+            android:padding="4dp"
+            android:src="@drawable/ic_eye"/>
     </LinearLayout>
     <Button
+        android:id="@+id/btn_login"
         android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="@drawable/rectangle_1"
+        android:background="@drawable/rectangle_45"
         android:text="Login"/>
 
 </LinearLayout>
