@@ -77,14 +77,18 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
-                        <AutoCompleteTextView
-                            android:id="@+id/email"
+                        <EditText
+                            android:id=""
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Email"
+                            android:hint="Email (optional)"
+                            android:imeActionId="@+id/login"
+                            android:imeOptions="actionUnspecified"
                             android:inputType="textEmailAddress"
                             android:maxLines="1"
-                            android:singleLine="true" />
+                            android:singleLine="true"
+                            tools:ignore="InvalidImeActionId" />
+
 
                     </com.google.android.material.textfield.TextInputLayout>
 
