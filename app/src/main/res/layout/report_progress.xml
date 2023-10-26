@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:minHeight="100dp">
+    </com.google.android.material.appbar.AppBarLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:background="@drawable/rectangle_45"
+            android:layout_marginBottom="0dp"
+            android:text="not yet"/>
+        <Button
+            android:layout_width="105dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:background="@drawable/rectangle_45"
+            android:text="process"/>
+        <Button
+            android:layout_width="90dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:background="@drawable/rectangle_45"
+            android:text="finish"/>
+        <Button
+            android:layout_width="115dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:background="@drawable/rectangle_45"
+            android:text="canceled"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
