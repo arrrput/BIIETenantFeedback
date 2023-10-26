@@ -1,23 +1,46 @@
-<vector
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:aapt="http://schemas.android.com/aapt"
-    android:width="296dp"
-    android:height="45dp"
-    android:viewportWidth="296"
-    android:viewportHeight="45"
-    >
-    <group>
-        <clip-path
-            android:pathData="M10 0H286C291.523 0 296 4.47715 296 10V35C296 40.5228 291.523 45 286 45H10C4.47715 45 0 40.5228 0 35V10C0 4.47715 4.47715 0 10 0Z"
-            />
-        <path
-            android:pathData="M0 0V45H296V0"
-            android:fillColor="#FFFFFF"
-            />
-        <path
-            android:pathData="M10 0H286C291.523 0 296 4.47715 296 10V35C296 40.5228 291.523 45 286 45H10C4.47715 45 0 40.5228 0 35V10C0 4.47715 4.47715 0 10 0Z"
-            android:strokeWidth="2"
-            android:strokeColor="#80000000"
-            />
-    </group>
-</vector>
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+
+        <layer-list>
+            <item android:bottom="4dp" android:left="4dp" android:right="4dp" android:top="4dp">
+                <shape android:shape="rectangle">
+                    <corners android:bottomLeftRadius="30dp" android:bottomRightRadius="30dp" android:radius="60dp" android:topLeftRadius="30dp" android:topRightRadius="30dp" />
+                    <solid android:color="@color/purple_700" />
+                    <padding android:bottom="0dp" android:left="0dp" android:right="0dp" android:top="0dp" />
+                    <size android:width="110dp" android:height="40dp" />
+                </shape>
+            </item>
+        </layer-list>
+
+    </item>
+    <item android:state_focused="true">
+
+        <layer-list>
+            <item android:bottom="4dp" android:left="4dp" android:right="4dp" android:top="4dp">
+                <shape android:shape="rectangle">
+                    <corners android:bottomLeftRadius="30dp" android:bottomRightRadius="30dp" android:radius="60dp" android:topLeftRadius="30dp" android:topRightRadius="30dp" />
+                    <solid android:color="@color/purple_700" />
+                    <padding android:bottom="0dp" android:left="0dp" android:right="0dp" android:top="0dp" />
+                    <size android:width="110dp" android:height="40dp" />
+                </shape>
+            </item>
+        </layer-list>
+
+    </item>
+
+    <item>
+
+        <layer-list>
+            <item android:bottom="4dp" android:left="4dp" android:right="4dp" android:top="4dp">
+                <shape android:shape="rectangle">
+                    <corners android:bottomLeftRadius="30dp" android:bottomRightRadius="30dp" android:radius="60dp" android:topLeftRadius="30dp" android:topRightRadius="30dp" />
+                    <solid android:color="@color/purple_700" />
+                    <padding android:bottom="0dp" android:left="0dp" android:right="0dp" android:top="0dp" />
+                    <size android:width="110dp" android:height="40dp" />
+                </shape>
+            </item>
+        </layer-list>
+
+    </item>
+</selector>
