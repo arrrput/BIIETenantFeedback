@@ -53,7 +53,12 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/spacing_xlarge"
             android:visibility="gone" />
-
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:src="@drawable/logo"/>
         <ScrollView
             android:id="@+id/login_form"
             android:layout_width="match_parent"
@@ -89,6 +94,14 @@
                             android:singleLine="true"
                             back
                             tools:ignore="InvalidImeActionId" />
+<!--                        <AutoCompleteTextView-->
+<!--                            android:id="@+id/email"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:hint="Email"-->
+<!--                            android:inputType="textEmailAddress"-->
+<!--                            android:maxLines="1"-->
+<!--                            android:singleLine="true" />-->
 
 
                     </com.google.android.material.textfield.TextInputLayout>
