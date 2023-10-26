@@ -87,6 +87,7 @@
                             android:inputType="textEmailAddress"
                             android:maxLines="1"
                             android:singleLine="true"
+                            back
                             tools:ignore="InvalidImeActionId" />
 
 

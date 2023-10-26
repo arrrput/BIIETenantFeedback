@@ -22,22 +22,40 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:layout_width="190dp"
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
             android:text="Department"
             android:textColor="#228B22"/>
-        
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
+            android:layout_marginBottom="0dp"
+            android:layout_marginTop="10dp"
             android:text="Complaint"
+            android:layout_marginStart="10dp"
             android:textColor="#228B22"/>
     </LinearLayout>
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Spinner
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:padding="5dp"/>
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:padding="5dp"/>
+    </LinearLayout>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
