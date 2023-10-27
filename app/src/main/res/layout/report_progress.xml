@@ -42,6 +42,12 @@
             android:background="@drawable/rectangle_45"
             android:text="canceled"/>
     </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:text="Description"
+        android:textColor="#228B22" />
 
 
 
