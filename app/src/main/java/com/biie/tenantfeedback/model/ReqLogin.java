@@ -2,17 +2,17 @@ package com.biie.tenantfeedback.model;
 
 public class ReqLogin {
 
-    private String email;
+    private String username;
     private String password;
 
     public ReqLogin(){}
 
-    public String getEmail() {
-        return email;
+    public String getUsername() {
+        return username;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUsername(String email) {
+        this.username = email;
     }
 
     public String getPassword() {

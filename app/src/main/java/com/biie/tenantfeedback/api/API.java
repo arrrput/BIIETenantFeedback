@@ -3,6 +3,7 @@ package com.biie.tenantfeedback.api;
 import android.content.Context;
 
 import com.biie.tenantfeedback.model.BadRequest;
+import com.biie.tenantfeedback.model.UserResp;
 import com.orhanobut.hawk.Hawk;
 
 import java.io.IOException;
@@ -20,7 +21,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class API {
 
-    public static final String ROOT_URL = "http://10.0.2.2/api/";
+    public static final String ROOT_URL = "https://dummyjson.com/";
     private static final String AUTHORIZATION = "Authorization";
     private static final boolean PRINT_DELAY = false;
     private static final boolean INTRO = false;
@@ -98,6 +99,10 @@ public class API {
             return ROOT_URL+IMG;
         }
         return null;
+    }
+
+    public static void setCurrentUser(UserResp user) {
+        Hawk.put(USER, user);
     }
 
 

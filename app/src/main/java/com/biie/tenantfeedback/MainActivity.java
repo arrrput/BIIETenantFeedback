@@ -1,7 +1,10 @@
 package com.biie.tenantfeedback;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import com.biie.tenantfeedback.activity.LoginActivity;
+import com.biie.tenantfeedback.api.API;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,24 +12,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 
 
-import com.biie.tenantfeedback.databinding.ActivityMainBinding;
-
 import android.view.Menu;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-
-        setSupportActionBar(binding.toolbar);
-
+        if(!API.isLogin()){
+            startActivity(new Intent(getApplicationContext(), LoginActivity.class ));
+            finish();
+        }
+        setContentView(R.layout.activity_main);
 
 
     }
