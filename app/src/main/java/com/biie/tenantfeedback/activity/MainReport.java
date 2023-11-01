@@ -32,7 +32,6 @@ import com.biie.tenantfeedback.R;
             //Setting the ArrayAdapter data on the Spinner
             spin1.setAdapter(aa1);
 
-            super.onCreate(savedInstanceState);
             setContentView(R.layout.report_main);
             //Getting the instance of Spinner and applying OnItemSelectedListener on it
             Spinner spin2 = (Spinner) findViewById(R.id.select_complaint);

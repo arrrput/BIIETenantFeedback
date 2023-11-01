@@ -2,7 +2,6 @@ package com.biie.tenantfeedback;
 
 import android.content.Intent;
 import android.os.Bundle;
-
 import com.biie.tenantfeedback.activity.LoginActivity;
 import com.biie.tenantfeedback.api.API;
 import com.google.android.material.snackbar.Snackbar;
