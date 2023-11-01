@@ -42,9 +42,10 @@ public class ProgressReport extends AppCompatActivity {
         ArrayList<String> arrayList=new ArrayList<>(0);
 
         // Add title in array list
-        arrayList.add("Basic");
-        arrayList.add("Advance");
-        arrayList.add("Pro");
+        arrayList.add("Not accepted");
+        arrayList.add("Progress");
+        arrayList.add("Finished");
+        arrayList.add("Canceled");
 
         // Setup tab layout
         tabLayout.setupWithViewPager(viewPager);
@@ -86,7 +87,7 @@ public class ProgressReport extends AppCompatActivity {
         ArrayList<Fragment> fragmentArrayList= new ArrayList<>();
         ArrayList<String> stringArrayList=new ArrayList<>();
 
-        int[] imageList={R.drawable.basic,R.drawable.advance,R.drawable.pro};
+//        int[] imageList={R.drawable.basic,R.drawable.advance,R.drawable.pro};
 
         // Create constructor
         public void addFragment(Fragment fragment,String s)
@@ -114,29 +115,29 @@ public class ProgressReport extends AppCompatActivity {
             return fragmentArrayList.size();
         }
 
-        @Nullable
-        @Override
-        public CharSequence getPageTitle(int position) {
-
-            // Initialize drawable
-            Drawable drawable= ContextCompat.getDrawable(getApplicationContext()
-                    ,imageList[position]);
-
-            // set bound
-            drawable.setBounds(0,0,drawable.getIntrinsicWidth(),
-                    drawable.getIntrinsicHeight());
-
-            // Initialize spannable image
-            SpannableString spannableString=new SpannableString(""+stringArrayList.get(position));
-
-            // Initialize image span
-            ImageSpan imageSpan=new ImageSpan(drawable,ImageSpan.ALIGN_BOTTOM);
-
-            // Set span
-            spannableString.setSpan(imageSpan,0,1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-            // return spannable string
-            return spannableString;
-        }
+//        @Nullable
+//        @Override
+//        public CharSequence getPageTitle(int position) {
+//
+//            // Initialize drawable
+//            Drawable drawable= ContextCompat.getDrawable(getApplicationContext()
+//                    ,imageList[position]);
+//
+//            // set bound
+//            drawable.setBounds(0,0,drawable.getIntrinsicWidth(),
+//                    drawable.getIntrinsicHeight());
+//
+//            // Initialize spannable image
+//            SpannableString spannableString=new SpannableString(""+stringArrayList.get(position));
+//
+//            // Initialize image span
+//            ImageSpan imageSpan=new ImageSpan(drawable,ImageSpan.ALIGN_BOTTOM);
+//
+//            // Set span
+//            spannableString.setSpan(imageSpan,0,1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+//
+//            // return spannable string
+//            return spannableString;
+//        }
     }
 }
