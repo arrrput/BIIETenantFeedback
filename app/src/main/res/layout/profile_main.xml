@@ -20,10 +20,9 @@
         android:textColor="#228B22"
         android:text="Profile"/>
     <ImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="10dp"
-
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="20dp"
         android:layout_gravity="center"
         android:background="@drawable/circle_1" />
     <TextView
