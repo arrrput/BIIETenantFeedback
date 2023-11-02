@@ -8,6 +8,11 @@
     android:orientation="vertical"
     tools:context=".ProgressReport">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary" />
     <com.google.android.material.tabs.TabLayout
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
@@ -26,7 +31,8 @@
 
 </LinearLayout>
 
-<!--    <?xml version="1.0" encoding="utf-8"?>-->
+
+    <!--    <?xml version="1.0" encoding="utf-8"?>-->
 <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
 <!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
 <!--    xmlns:tools="http://schemas.android.com/tools"-->

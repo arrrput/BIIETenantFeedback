@@ -15,9 +15,7 @@ import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
-import android.text.style.ImageSpan;
 
-import com.biie.tenantfeedback.ProgressFragment;
 import com.google.android.material.tabs.TabLayout;
 
 import java.lang.reflect.Array;
@@ -42,10 +40,9 @@ public class ProgressReport extends AppCompatActivity {
         ArrayList<String> arrayList=new ArrayList<>(0);
 
         // Add title in array list
-        arrayList.add("Not accepted");
-        arrayList.add("Progress");
-        arrayList.add("Finished");
-        arrayList.add("Canceled");
+        arrayList.add("Basic");
+        arrayList.add("Advance");
+        arrayList.add("Pro");
 
         // Setup tab layout
         tabLayout.setupWithViewPager(viewPager);
@@ -59,7 +56,7 @@ public class ProgressReport extends AppCompatActivity {
         // Initialize main adapter
         MainAdapter adapter=new MainAdapter(getSupportFragmentManager());
 
-        // Initialize progress fragment
+        // Initialize main fragment
         ProgressFragment progressFragment=new ProgressFragment();
 
         // Use for loop
@@ -87,8 +84,6 @@ public class ProgressReport extends AppCompatActivity {
         ArrayList<Fragment> fragmentArrayList= new ArrayList<>();
         ArrayList<String> stringArrayList=new ArrayList<>();
 
-        int[] imageList={R.drawable.basic,R.drawable.advance,R.drawable.pro};
-
         // Create constructor
         public void addFragment(Fragment fragment,String s)
         {
@@ -114,30 +109,16 @@ public class ProgressReport extends AppCompatActivity {
             // Return fragment array list size
             return fragmentArrayList.size();
         }
+
         @Nullable
         @Override
         public CharSequence getPageTitle(int position) {
 
-            // Initialize drawable
-            Drawable drawable= ContextCompat.getDrawable(getApplicationContext()
-                    ,imageList[position]);
-
-            // set bound
-            drawable.setBounds(0,0,drawable.getIntrinsicWidth(),
-                    drawable.getIntrinsicHeight());
-
             // Initialize spannable image
             SpannableString spannableString=new SpannableString(""+stringArrayList.get(position));
-
-            // Initialize image span
-            ImageSpan imageSpan=new ImageSpan(drawable,ImageSpan.ALIGN_BOTTOM);
-
-            // Set span
-            spannableString.setSpan(imageSpan,0,1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
             // return spannable string
             return spannableString;
         }
-
     }
 }
