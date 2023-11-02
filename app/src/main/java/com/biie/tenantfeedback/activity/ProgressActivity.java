@@ -27,13 +27,15 @@ public class ProgressActivity extends AppCompatActivity {
 
     // assign variable
     // Initialize variables
-    TabLayout tabLayout = findViewById(R.id.tab_layout);
-    ViewPager viewPager = findViewById(R.id.view_pager);
-
+    TabLayout tabLayout;
+    ViewPager viewPager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_progress);
+
+        tabLayout=findViewById(R.id.tab_layout);
+        viewPager=findViewById(R.id.view_pager);
 
         // Initialize array list
         ArrayList<String> arrayList=new ArrayList<>(0);
