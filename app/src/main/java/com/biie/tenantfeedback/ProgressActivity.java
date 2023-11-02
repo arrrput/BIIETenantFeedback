@@ -1,4 +1,4 @@
-package com.biie.tenantfeedback.activity;
+package com.biie.tenantfeedback;
 
 import androidx.annotation.ContentView;
 import androidx.annotation.NonNull;

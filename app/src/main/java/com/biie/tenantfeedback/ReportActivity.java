@@ -1,4 +1,4 @@
-package com.biie.tenantfeedback.activity;
+package com.biie.tenantfeedback;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;

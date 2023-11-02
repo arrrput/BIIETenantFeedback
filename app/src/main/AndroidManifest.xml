@@ -14,19 +14,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TenantFeedback">
         <activity
-            android:name=".activity.ProgressActivity"
+            android:name=".ProgressActivity"
             android:label="Progress" />
         <activity
-            android:name=".activity.ReportActivity"
+            android:name=".ReportActivity"
             android:label="Report" />
         <activity
-            android:name=".activity.ProfileActivity"
+            android:name=".ProfileActivity"
             android:label="Profile" />
         <activity
-            android:name=".activity.LoginActivity"
+            android:name=".LoginActivity"
             android:label="Login" />
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.TenantFeedback.NoActionBar">

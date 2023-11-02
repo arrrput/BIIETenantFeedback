@@ -1,13 +1,10 @@
-package com.biie.tenantfeedback.activity;
+package com.biie.tenantfeedback;
 
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.biie.tenantfeedback.R;
 import com.biie.tenantfeedback.api.API;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -36,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         } else if (item.getItemId() == R.id.action_progress) {
             startActivity(new Intent(this,ProgressActivity.class));
         }
+        return true;
 //        else if (item.getItemId() == R.id.action_settings) {
 //            startActivity(new Intent(this,));
 //        } else if (item.getItemId() == R.id.action_about) {
@@ -44,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 //            startActivity(new Intent(this,));
 //        }
 
-        return super.onOptionsItemSelected(item);
+//        return super.onOptionsItemSelected(item);
     }
 
     @Override

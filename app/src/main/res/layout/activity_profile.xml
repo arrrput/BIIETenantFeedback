@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:background="@color/white"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".activity.ProfileActivity">
+    tools:context=".ProfileActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
