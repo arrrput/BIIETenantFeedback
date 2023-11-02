@@ -1,4 +1,4 @@
-package com.biie.tenantfeedback;
+package com.biie.tenantfeedback.activity;
 
 import androidx.annotation.ContentView;
 import androidx.annotation.NonNull;
@@ -16,25 +16,24 @@ import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
 
+import com.biie.tenantfeedback.ProgressFragment;
+import com.biie.tenantfeedback.R;
 import com.google.android.material.tabs.TabLayout;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class ProgressReport extends AppCompatActivity {
+public class ProgressActivity extends AppCompatActivity {
 
+    // assign variable
     // Initialize variables
-    TabLayout tabLayout;
-    ViewPager viewPager;
+    TabLayout tabLayout = findViewById(R.id.tab_layout);
+    ViewPager viewPager = findViewById(R.id.view_pager);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.report_progress);
-
-        // assign variable
-        tabLayout=findViewById(R.id.tab_layout);
-        viewPager=findViewById(R.id.view_pager);
+        setContentView(R.layout.activity_progress);
 
         // Initialize array list
         ArrayList<String> arrayList=new ArrayList<>(0);

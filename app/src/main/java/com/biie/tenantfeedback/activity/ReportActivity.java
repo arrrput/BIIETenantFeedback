@@ -13,48 +13,48 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.biie.tenantfeedback.R;
 
 
-    public class MainReport extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class ReportActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-        String[] department = { "A", "B", "C", "D", "E"};
-        String[] complaint = {"F", "G", "H", "I", "J"};
+    String[] department = { "A", "B", "C", "D", "E"};
+    String[] complaint = {"F", "G", "H", "I", "J"};
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.report_main);
-            //Getting the instance of Spinner and applying OnItemSelectedListener on it
-            Spinner spin1 = (Spinner) findViewById(R.id.select_department);
-            spin1.setOnItemSelectedListener(this);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_report);
+        //Getting the instance of Spinner and applying OnItemSelectedListener on it
+        Spinner spin1 = (Spinner) findViewById(R.id.select_department);
+        spin1.setOnItemSelectedListener(this);
 
-            //Creating the ArrayAdapter instance having the department list
-            ArrayAdapter aa1 = new ArrayAdapter(this,android.R.layout.simple_spinner_item,department);
-            aa1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            //Setting the ArrayAdapter data on the Spinner
-            spin1.setAdapter(aa1);
+        //Creating the ArrayAdapter instance having the department list
+        ArrayAdapter aa1 = new ArrayAdapter(this,android.R.layout.simple_spinner_item,department);
+        aa1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        //Setting the ArrayAdapter data on the Spinner
+        spin1.setAdapter(aa1);
 
-            setContentView(R.layout.report_main);
-            //Getting the instance of Spinner and applying OnItemSelectedListener on it
-            Spinner spin2 = (Spinner) findViewById(R.id.select_complaint);
-            spin2.setOnItemSelectedListener(this);
+        setContentView(R.layout.activity_report);
+        //Getting the instance of Spinner and applying OnItemSelectedListener on it
+        Spinner spin2 = (Spinner) findViewById(R.id.select_complaint);
+        spin2.setOnItemSelectedListener(this);
 
-            //Creating the ArrayAdapter instance having the complaint list
-            ArrayAdapter aa2 = new ArrayAdapter(this,android.R.layout.simple_spinner_item,complaint);
-            aa2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            //Setting the ArrayAdapter data on the Spinner
-            spin2.setAdapter(aa2);
+        //Creating the ArrayAdapter instance having the complaint list
+        ArrayAdapter aa2 = new ArrayAdapter(this,android.R.layout.simple_spinner_item,complaint);
+        aa2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        //Setting the ArrayAdapter data on the Spinner
+        spin2.setAdapter(aa2);
 
-        }
+    }
 
-        //Performing action onItemSelected and onNothing selected
-        @Override
-        public void onItemSelected(AdapterView<?> arg0, View arg1, int position, long id) {
-            Toast.makeText(getApplicationContext(),department[position] , Toast.LENGTH_LONG).show();
-            Toast.makeText(getApplicationContext(),complaint[position] , Toast.LENGTH_LONG).show();
-        }
-        @Override
-        public void onNothingSelected(AdapterView<?> arg0) {
-            // TODO Auto-generated method stub
-        }
+    //Performing action onItemSelected and onNothing selected
+    @Override
+    public void onItemSelected(AdapterView<?> arg0, View arg1, int position, long id) {
+        Toast.makeText(getApplicationContext(),department[position] , Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(),complaint[position] , Toast.LENGTH_LONG).show();
+    }
+    @Override
+    public void onNothingSelected(AdapterView<?> arg0) {
+        // TODO Auto-generated method stub
+    }
 //    // Main Activity implements Adapter view
 //    public class MainReport
 //            extends AppCompatActivity
@@ -119,5 +119,5 @@ import com.biie.tenantfeedback.R;
 //        {
 //            // Auto-generated method stub
 //        }
-    }
+}
 

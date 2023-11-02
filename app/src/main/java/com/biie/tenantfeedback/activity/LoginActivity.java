@@ -3,23 +3,16 @@ package com.biie.tenantfeedback.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.Toast;
-import com.biie.tenantfeedback.MainActivity;
+
 import com.biie.tenantfeedback.R;
 import com.biie.tenantfeedback.api.API;
 import com.biie.tenantfeedback.api.APICallback;
 import com.biie.tenantfeedback.model.BadRequest;
 import com.biie.tenantfeedback.model.ReqLogin;
 import com.biie.tenantfeedback.model.UserResp;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
 
