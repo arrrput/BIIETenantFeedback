@@ -40,9 +40,10 @@ public class ProgressReport extends AppCompatActivity {
         ArrayList<String> arrayList=new ArrayList<>(0);
 
         // Add title in array list
-        arrayList.add("Basic");
-        arrayList.add("Advance");
-        arrayList.add("Pro");
+        arrayList.add("Notyet");
+        arrayList.add("Progress");
+        arrayList.add("Finished");
+        arrayList.add("Canceled");
 
         // Setup tab layout
         tabLayout.setupWithViewPager(viewPager);
