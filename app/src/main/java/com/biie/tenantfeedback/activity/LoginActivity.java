@@ -1,4 +1,4 @@
-package com.biie.tenantfeedback;
+package com.biie.tenantfeedback.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.biie.tenantfeedback.R;
 import com.biie.tenantfeedback.api.API;
 import com.biie.tenantfeedback.api.APICallback;
 import com.biie.tenantfeedback.model.BadRequest;

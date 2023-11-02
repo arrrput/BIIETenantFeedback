@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ProgressActivity">
+    tools:context=".activity.ProgressActivity">
+
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -16,13 +17,13 @@
     <com.google.android.material.tabs.TabLayout
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
+        android:id="@+id/tab_layout"
         android:background="@color/white"
         app:tabInlineLabel="true"
-        app:tabTextColor="@color/teal_700"
-        app:tabIndicatorColor="@color/teal_700"
-        app:tabSelectedTextColor="@color/teal_700"
-        app:tabTextAppearance="@style/TextAppearance.AppCompat.Small"
-        android:id="@+id/tab_layout"/>
+        app:tabTextColor="#00796B"
+        app:tabIndicatorColor="@color/black"
+        app:tabSelectedTextColor="@color/black"
+        app:tabTextAppearance="@style/TextAppearance.AppCompat.Small"/>
 
     <androidx.viewpager.widget.ViewPager
         android:layout_width="match_parent"

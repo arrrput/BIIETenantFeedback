@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:background="@color/white"
-    tools:context=".ReportActivity">
+    tools:context=".activity.ReportActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
