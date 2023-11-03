@@ -1,26 +1,23 @@
 package com.biie.tenantfeedback.activity;
 
 import androidx.annotation.ContentView;
+import androidx.core.content.ContextCompat;
+import android.graphics.drawable.Drawable;
+import android.text.Spannable;
+import android.text.Spanned;
+import java.lang.reflect.Array;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
-
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.text.Spannable;
 import android.text.SpannableString;
-import android.text.Spanned;
-
 import com.biie.tenantfeedback.ProgressFragment;
 import com.biie.tenantfeedback.R;
 import com.google.android.material.tabs.TabLayout;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class ProgressActivity extends AppCompatActivity {
@@ -41,7 +38,7 @@ public class ProgressActivity extends AppCompatActivity {
         ArrayList<String> arrayList=new ArrayList<>(0);
 
         // Add title in array list
-        arrayList.add("Notyet");
+        arrayList.add("Not Yet Accepted");
         arrayList.add("Progress");
         arrayList.add("Finished");
         arrayList.add("Canceled");

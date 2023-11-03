@@ -5,13 +5,21 @@ import android.os.Bundle;
 import com.biie.tenantfeedback.R;
 import com.biie.tenantfeedback.api.API;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import android.view.View;
+import android.widget.Toast;
+import android.widget.Button;
 //import android.view.Menu;
 //import android.view.MenuInflater;
 //import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
+
+    CardView action_profile;
+    CardView action_report;
+    CardView action_progress;
+    private int message;
+
     //    private MenuItem item;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,32 +30,57 @@ public class MainActivity extends AppCompatActivity {
         }
         setContentView(R.layout.activity_main);
 
-        Button btnProfile = findViewById(R.id.action_profile);
-        Button btnReport = findViewById(R.id.action_report);
-        Button btnProgress = findViewById(R.id.action_progress);
+        action_profile = findViewById(R.id.action_profile);
+        action_report = findViewById(R.id.action_report);
+        action_progress = findViewById(R.id.action_progress);
 
-        btnProfile.setOnClickListener(new View.OnClickListener() {
+        action_profile.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, ProfileActivity.class));
             }
         });
-
-        btnReport.setOnClickListener(new View.OnClickListener() {
+        action_report.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, ReportActivity.class));
             }
         });
-        btnProgress.setOnClickListener(new View.OnClickListener() {
+        action_progress.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, ProgressActivity.class));
             }
         });
-
-
     }
+}
+
+//        Button btnProfile = findViewById(R.id.action_profile);
+//        Button btnReport = findViewById(R.id.action_report);
+//        Button btnProgress = findViewById(R.id.action_progress);
+//
+//        btnProfile.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(new Intent(MainActivity.this, ProfileActivity.class));
+//            }
+//        });
+//
+//        btnReport.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(new Intent(MainActivity.this, ReportActivity.class));
+//            }
+//        });
+//        btnProgress.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(new Intent(MainActivity.this, ProgressActivity.class));
+//            }
+//        });
+
+
+
 
 //        @Override
 //        public boolean onCreateOptionsMenu(Menu menu) {
@@ -83,4 +116,3 @@ public class MainActivity extends AppCompatActivity {
 
 //        return super.onOptionsItemSelected(item);
 //    }
-}

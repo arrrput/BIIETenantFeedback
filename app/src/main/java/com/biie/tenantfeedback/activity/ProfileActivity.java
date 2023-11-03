@@ -1,9 +1,7 @@
 package com.biie.tenantfeedback.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
-
 import com.biie.tenantfeedback.R;
 
 public class ProfileActivity extends AppCompatActivity {

@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
 import com.biie.tenantfeedback.R;
 import com.biie.tenantfeedback.api.API;
 import com.biie.tenantfeedback.api.APICallback;
