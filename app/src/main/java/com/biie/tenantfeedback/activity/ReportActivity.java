@@ -5,16 +5,21 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
+import android.widget.Button;
+import android.net.Uri;
 import com.biie.tenantfeedback.R;
-
+import android.content.Intent;
 
 public class ReportActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-
     String[] department = { "A", "B", "C", "D", "E"};
     String[] complaint = { "F", "G", "H", "I", "J"};
 
+    Button input_image;
+    ImageView view_image;
+    int select_image = 200;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +43,40 @@ public class ReportActivity extends AppCompatActivity implements AdapterView.OnI
         //Setting the ArrayAdapter data on the Spinner
         spin2.setAdapter(aa2);
 
+        input_image = findViewById(R.id.input_image);
+        view_image = findViewById(R.id.view_image);
+
+        input_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                imagechooser();
+            }
+        });
+    }
+
+    void imagechooser(){
+        Intent i = new Intent();
+        i.setType("image/*");
+        i.setAction(Intent.ACTION_GET_CONTENT);
+
+        startActivityForResult(Intent.createChooser(i, "Select Image"), select_image);
+    }
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == RESULT_OK) {
+
+            // compare the resultCode with the
+            // SELECT_PICTURE constant
+            if (requestCode == select_image) {
+                // Get the url of the image from data
+                Uri selectedImageUri = data.getData();
+                if (null != selectedImageUri) {
+                    // update the preview image in the layout
+                    view_image.setImageURI(selectedImageUri);
+                }
+            }
+        }
     }
 
     //Performing action onItemSelected and onNothing selected

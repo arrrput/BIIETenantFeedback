@@ -73,7 +73,8 @@
             android:layout_column="0"
             app:cardCornerRadius="8dp"
             app:cardElevation="8dp"
-            app:cardUseCompatPadding="true">
+            app:cardUseCompatPadding="true"
+            app:cardBackgroundColor="#082567">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -89,7 +90,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#228B22"
+                    android:textColor="#ffffff"
                     android:text="Profile"/>
             </LinearLayout>
 
@@ -106,7 +107,8 @@
             android:layout_column="1"
             app:cardCornerRadius="8dp"
             app:cardElevation="8dp"
-            app:cardUseCompatPadding="true">
+            app:cardUseCompatPadding="true"
+            app:cardBackgroundColor="#FF5733">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -122,7 +124,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#228B22"
+                    android:textColor="#ffffff"
                     android:text="Report"/>
             </LinearLayout>
 
@@ -139,7 +141,8 @@
             android:layout_column="0"
             app:cardCornerRadius="8dp"
             app:cardElevation="8dp"
-            app:cardUseCompatPadding="true">
+            app:cardUseCompatPadding="true"
+            app:cardBackgroundColor="#FFA500">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -155,7 +158,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#228B22"
+                    android:textColor="#ffffff"
                     android:text="Progress"/>
             </LinearLayout>
 
@@ -171,7 +174,8 @@
             android:layout_column="1"
             app:cardCornerRadius="8dp"
             app:cardElevation="8dp"
-            app:cardUseCompatPadding="true">
+            app:cardUseCompatPadding="true"
+            app:cardBackgroundColor="#93C572">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -183,12 +187,12 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/icon_progress"/>
+                    android:src="@drawable/icon_about"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#228B22"
-                    android:text="Test"/>
+                    android:textColor="#ffffff"
+                    android:text="About"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
