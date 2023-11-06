@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     CardView action_profile;
     CardView action_report;
     CardView action_progress;
+    CardView action_logout;
     private int message;
 
     //    private MenuItem item;
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         action_profile = findViewById(R.id.action_profile);
         action_report = findViewById(R.id.action_report);
         action_progress = findViewById(R.id.action_progress);
+        action_logout = findViewById(R.id.action_logout);
 
         action_profile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,34 +54,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, ProgressActivity.class));
             }
         });
+
+        action_logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            }
+        });
     }
 }
-
-//        Button btnProfile = findViewById(R.id.action_profile);
-//        Button btnReport = findViewById(R.id.action_report);
-//        Button btnProgress = findViewById(R.id.action_progress);
-//
-//        btnProfile.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                startActivity(new Intent(MainActivity.this, ProfileActivity.class));
-//            }
-//        });
-//
-//        btnReport.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                startActivity(new Intent(MainActivity.this, ReportActivity.class));
-//            }
-//        });
-//        btnProgress.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                startActivity(new Intent(MainActivity.this, ProgressActivity.class));
-//            }
-//        });
-
-
 
 
 //        @Override
