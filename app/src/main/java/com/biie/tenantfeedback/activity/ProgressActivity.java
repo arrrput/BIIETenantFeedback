@@ -10,8 +10,11 @@ import androidx.viewpager.widget.ViewPager;
 import android.os.Bundle;
 import android.widget.FrameLayout;
 
-import com.biie.tenantfeedback.FeedFragment;
-import com.biie.tenantfeedback.ProgressFragment;
+import com.biie.tenantfeedback.fragment.CancelFragment;
+import com.biie.tenantfeedback.fragment.FeedFragment;
+import com.biie.tenantfeedback.fragment.FinishFragment;
+import com.biie.tenantfeedback.fragment.NotFragment;
+import com.biie.tenantfeedback.fragment.ProgressFragment;
 import com.biie.tenantfeedback.R;
 import com.google.android.material.tabs.TabLayout;
 import java.util.ArrayList;
@@ -39,7 +42,7 @@ public class ProgressActivity extends AppCompatActivity {
         viewPager=findViewById(R.id.view_pager);
         frameLayout = findViewById(R.id.frame_layout);
 
-        fragment = new FeedFragment();
+        fragment = new NotFragment();
         fragmentManager = getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frame_layout, fragment);
@@ -68,16 +71,16 @@ public class ProgressActivity extends AppCompatActivity {
                 // Fragment fragment = null;
                 switch (tab.getPosition()) {
                     case 0:
-                        fragment = new FeedFragment();
+                        fragment = new NotFragment();
                         break;
                     case 1:
                         fragment = new FeedFragment();
                         break;
                     case 2:
-                        fragment = new FeedFragment();
+                        fragment = new FinishFragment();
                         break;
                     case 3:
-                        fragment = new FeedFragment();
+                        fragment = new CancelFragment();
                         break;
 
                 }
@@ -111,7 +114,7 @@ public class ProgressActivity extends AppCompatActivity {
         switch (tabLayout.getSelectedTabPosition())
         {
             case 0:
-                fragment = new FeedFragment();
+                fragment = new NotFragment();
                 adapter.addFragment(fragment, arrayList.get(0));
                 break;
             case 1:

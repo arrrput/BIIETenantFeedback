@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.FeedFragment">
+    tools:context=".fragment.NotFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/idRVFeed"
+        android:id="@+id/idRVNot"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
