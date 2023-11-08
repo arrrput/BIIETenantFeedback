@@ -1,30 +1,20 @@
 package com.biie.tenantfeedback.activity;
 
-import static com.biie.tenantfeedback.R.id.view_pager;
-import androidx.annotation.ContentView;
-import androidx.core.content.ContextCompat;
 import android.annotation.SuppressLint;
-import android.graphics.drawable.Drawable;
-import android.text.Spannable;
-import android.text.Spanned;
-import java.lang.reflect.Array;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 import android.os.Bundle;
-import android.text.SpannableString;
-import com.biie.tenantfeedback.CourseAdapter;
-import com.biie.tenantfeedback.CourseModel;
+import android.widget.FrameLayout;
+
+import com.biie.tenantfeedback.FeedFragment;
 import com.biie.tenantfeedback.ProgressFragment;
 import com.biie.tenantfeedback.R;
 import com.google.android.material.tabs.TabLayout;
 import java.util.ArrayList;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 public class ProgressActivity extends AppCompatActivity {
 
@@ -32,52 +22,83 @@ public class ProgressActivity extends AppCompatActivity {
     // Initialize variables
     TabLayout tabLayout;
     ViewPager viewPager;
+    FrameLayout frameLayout;
+    Fragment fragment = null;
+    FragmentManager fragmentManager;
+    FragmentTransaction fragmentTransaction;
+
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_progress);
 
+
         tabLayout=findViewById(R.id.tab_layout);
         viewPager=findViewById(R.id.view_pager);
+        frameLayout = findViewById(R.id.frame_layout);
+
+        fragment = new FeedFragment();
+        fragmentManager = getSupportFragmentManager();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frame_layout, fragment);
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        fragmentTransaction.commit();
 
         // Initialize array list
-        ArrayList<String> arrayList=new ArrayList<>(0);
+//        ArrayList<String> arrayList=new ArrayList<>(0);
+//
+//        // Add title in array list
+//        arrayList.add("Not Yet Accepted");
+//        arrayList.add("Progress");
+//        arrayList.add("Finished");
+//        arrayList.add("Canceled");
+//
+//        // Setup tab layout
+//        tabLayout.setupWithViewPager(viewPager);
+//
+//        // Prepare view pager
+//        prepareViewPager(viewPager,arrayList);
 
-        // Add title in array list
-        arrayList.add("Not Yet Accepted");
-        arrayList.add("Progress");
-        arrayList.add("Finished");
-        arrayList.add("Canceled");
 
-        // Setup tab layout
-        tabLayout.setupWithViewPager(viewPager);
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                // Fragment fragment = null;
+                switch (tab.getPosition()) {
+                    case 0:
+                        fragment = new FeedFragment();
+                        break;
+                    case 1:
+                        fragment = new FeedFragment();
+                        break;
+                    case 2:
+                        fragment = new FeedFragment();
+                        break;
+                    case 3:
+                        fragment = new FeedFragment();
+                        break;
 
-        // Prepare view pager
-        prepareViewPager(viewPager,arrayList);
+                }
+                FragmentManager fm = getSupportFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                ft.replace(R.id.frame_layout, fragment);
+                ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                ft.commit();
+            }
 
-        RecyclerView courseRV = findViewById(R.id.idRVCourse);
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
 
-        // Here, we have created new array list and added data to it
-        ArrayList<CourseModel> courseModelArrayList = new ArrayList<CourseModel>();
-        courseModelArrayList.add(new CourseModel("DSA in Java", 4, R.drawable.logo));
-        courseModelArrayList.add(new CourseModel("Java Course", 3, R.drawable.logo));
-        courseModelArrayList.add(new CourseModel("C++ Course", 4, R.drawable.logo));
-        courseModelArrayList.add(new CourseModel("DSA in C++", 4, R.drawable.logo));
-        courseModelArrayList.add(new CourseModel("Kotlin for Android", 4, R.drawable.logo));
-        courseModelArrayList.add(new CourseModel("Java for Android", 4, R.drawable.logo));
-        courseModelArrayList.add(new CourseModel("HTML and CSS", 4, R.drawable.logo));
+            }
 
-        // we are initializing our adapter class and passing our arraylist to it.
-        CourseAdapter courseAdapter = new CourseAdapter(this, courseModelArrayList);
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
 
-        // below line is for setting a layout manager for our recycler view.
-        // here we are creating vertical list so we will provide orientation as vertical
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+            }
 
-        // in below two lines we are setting layoutmanager and adapter to our recycler view.
-        courseRV.setLayoutManager(linearLayoutManager);
-        courseRV.setAdapter(courseAdapter);
+        });
     }
 
     private void prepareViewPager(ViewPager viewPager, ArrayList<String> arrayList) {
@@ -86,22 +107,34 @@ public class ProgressActivity extends AppCompatActivity {
 
         // Initialize main fragment
         ProgressFragment progressFragment = new ProgressFragment();
+        Fragment fragment = null;
+        switch (tabLayout.getSelectedTabPosition())
+        {
+            case 0:
+                fragment = new FeedFragment();
+                adapter.addFragment(fragment, arrayList.get(0));
+                break;
+            case 1:
+                fragment = new ProgressFragment();
+                adapter.addFragment(fragment, arrayList.get(1));
+                break;
 
-        // Use for loop
-        for (int i = 0; i < arrayList.size(); i++) {
-            // Initialize bundle
-            Bundle bundle = new Bundle();
-
-            // Put title
-            bundle.putString("title", arrayList.get(i));
-
-            // set argument
-            progressFragment.setArguments(bundle);
-
-            // Add fragment
-            adapter.addFragment(progressFragment, arrayList.get(i));
-            progressFragment = new ProgressFragment();
         }
+        // Use for loop
+//        for (int i = 0; i < arrayList.size(); i++) {
+//            // Initialize bundle
+//            Bundle bundle = new Bundle();
+//
+//            // Put title
+//            bundle.putString("title", arrayList.get(i));
+//
+//            // set argument
+//            progressFragment.setArguments(bundle);
+//
+//            // Add fragment
+//            adapter.addFragment(progressFragment, arrayList.get(i));
+//            progressFragment = new ProgressFragment();
+//        }
         // set adapter
         viewPager.setAdapter(adapter);
     }

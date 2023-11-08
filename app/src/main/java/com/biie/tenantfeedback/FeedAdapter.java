@@ -10,51 +10,51 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
-public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder> {
+public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
 
     private final Context context;
-    private final ArrayList<CourseModel> courseModelArrayList;
+    private final ArrayList<FeedModel> feedModelArrayList;
 
     // Constructor
-    public CourseAdapter(Context context, ArrayList<CourseModel> courseModelArrayList) {
+    public FeedAdapter(Context context, ArrayList<FeedModel> feedModelArrayList) {
         this.context = context;
-        this.courseModelArrayList = courseModelArrayList;
+        this.feedModelArrayList = feedModelArrayList;
     }
 
     @NonNull
     @Override
-    public CourseAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public FeedAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // to inflate the layout for each item of recycler view.
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_layout, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CourseAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull FeedAdapter.ViewHolder holder, int position) {
         // to set data to textview and imageview of each card layout
-        CourseModel model = courseModelArrayList.get(position);
-        holder.courseNameTV.setText(model.getCourse_name());
-        holder.courseRatingTV.setText("" + model.getCourse_rating());
-        holder.courseIV.setImageResource(model.getCourse_image());
+        FeedModel model = feedModelArrayList.get(position);
+        holder.feedNameTV.setText(model.getFeed_name());
+        holder.feedRatingTV.setText("" + model.getFeed_rating());
+        holder.feedIV.setImageResource(model.getFeed_image());
     }
 
     @Override
     public int getItemCount() {
         // this method is used for showing number of card items in recycler view
-        return courseModelArrayList.size();
+        return feedModelArrayList.size();
     }
 
     // View holder class for initializing of your views such as TextView and Imageview
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        private final ImageView courseIV;
-        private final TextView courseNameTV;
-        private final TextView courseRatingTV;
+        private final ImageView feedIV;
+        private final TextView feedNameTV;
+        private final TextView feedRatingTV;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            courseIV = itemView.findViewById(R.id.idIVCourseImage);
-            courseNameTV = itemView.findViewById(R.id.idTVCourseName);
-            courseRatingTV = itemView.findViewById(R.id.idTVCourseRating);
+            feedIV = itemView.findViewById(R.id.idIVFeedImage);
+            feedNameTV = itemView.findViewById(R.id.idTVFeedName);
+            feedRatingTV = itemView.findViewById(R.id.idTVFeedRating);
         }
     }
 }

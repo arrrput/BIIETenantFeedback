@@ -18,8 +18,8 @@
     <string name="previous">Previous</string>
 
     <!-- RecyclerView example -->
-    <string name="course_name">Course Name</string>
-    <string name="course_rating">Course Rating</string>
+    <string name="feed_name">Feed Name</string>
+    <string name="feed_rating">Feed Rating</string>
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
