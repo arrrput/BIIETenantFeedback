@@ -19,6 +19,7 @@ public class ReportActivity extends AppCompatActivity implements AdapterView.OnI
     String[] department = { "A", "B", "C", "D", "E"};
     String[] complaint = { "F", "G", "H", "I", "J"};
 
+    Button confirm_report;
     Button Reportinput_image;
     ImageView Reportview_image;
     int Reportselect_image = 200;
@@ -30,7 +31,13 @@ public class ReportActivity extends AppCompatActivity implements AdapterView.OnI
 
         Reportinput_image = findViewById(R.id.Reportinput_image);
         Reportview_image = findViewById(R.id.Reportview_image);
-
+        confirm_report = findViewById(R.id.confirm_report);
+        confirm_report.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ReportActivity.this, ProgressActivity.class));
+            }
+        });
         //select image
         Reportinput_image.setOnClickListener(new View.OnClickListener() {
             @Override
