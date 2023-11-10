@@ -31,6 +31,7 @@
             android:contentDescription="@string/app_name"
             android:padding="5dp"
             android:src="@drawable/logo" />
+<!--            android:src="@+id/Reportview_image"-->
 
         <!-- Text View to display Feed Name -->
         <TextView

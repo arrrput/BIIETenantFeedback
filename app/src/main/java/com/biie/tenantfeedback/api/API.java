@@ -105,7 +105,6 @@ public class API {
         Hawk.put(USER, user);
     }
 
-
     public static void setIntro(boolean ISTRO){Hawk.put(ISDONE, ISTRO);}
 
     public static boolean getIntro(){return Hawk.get(ISDONE, INTRO); }

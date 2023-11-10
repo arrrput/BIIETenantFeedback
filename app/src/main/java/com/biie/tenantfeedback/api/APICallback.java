@@ -2,9 +2,7 @@ package com.biie.tenantfeedback.api;
 
 
 import com.biie.tenantfeedback.model.BadRequest;
-
 import java.io.IOException;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

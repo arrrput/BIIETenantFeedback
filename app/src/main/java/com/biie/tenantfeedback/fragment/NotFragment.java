@@ -29,8 +29,8 @@ public class NotFragment extends Fragment {
 
         // Here, we have created new array list and added data to it
         ArrayList<FeedModel> feedModelArrayList = new ArrayList<FeedModel>();
-        feedModelArrayList.add(new FeedModel("Kotlin for Android", 4, R.drawable.logo));
-        feedModelArrayList.add(new FeedModel("Java for Android", 4, R.drawable.logo));
+        feedModelArrayList.add(new FeedModel("Kerusakan kabel jaringan", 4, R.drawable.logo));
+        feedModelArrayList.add(new FeedModel("Internet WiFi tidak jalan", 4, R.drawable.logo));
 
 
         // we are initializing our adapter class and passing our arraylist to it.

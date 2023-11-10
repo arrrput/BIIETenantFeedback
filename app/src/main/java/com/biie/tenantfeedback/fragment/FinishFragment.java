@@ -29,8 +29,8 @@ public class FinishFragment extends Fragment {
 
         // Here, we have created new array list and added data to it
         ArrayList<FeedModel> feedModelArrayList = new ArrayList<FeedModel>();
-        feedModelArrayList.add(new FeedModel("C++ Course", 4, R.drawable.logo));
-        feedModelArrayList.add(new FeedModel("DSA in C++", 4, R.drawable.logo));
+        feedModelArrayList.add(new FeedModel("Kabel WiFi putus", 4, R.drawable.logo));
+        feedModelArrayList.add(new FeedModel("WiFi tidak tersambung ke perangkat", 4, R.drawable.logo));
 
 
         // we are initializing our adapter class and passing our arraylist to it.

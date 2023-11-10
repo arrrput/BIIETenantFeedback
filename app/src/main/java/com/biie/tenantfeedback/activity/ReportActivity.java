@@ -1,6 +1,8 @@
 package com.biie.tenantfeedback.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -17,13 +19,25 @@ public class ReportActivity extends AppCompatActivity implements AdapterView.OnI
     String[] department = { "A", "B", "C", "D", "E"};
     String[] complaint = { "F", "G", "H", "I", "J"};
 
-    Button input_image;
-    ImageView view_image;
-    int select_image = 200;
+    Button Reportinput_image;
+    ImageView Reportview_image;
+    int Reportselect_image = 200;
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report);
+
+        Reportinput_image = findViewById(R.id.Reportinput_image);
+        Reportview_image = findViewById(R.id.Reportview_image);
+
+        //select image
+        Reportinput_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                imagechooser();
+            }
+        });
 
         //Getting the instance of Spinner and applying OnItemSelectedListener on it
         Spinner spin1 = (Spinner) findViewById(R.id.select_department);
@@ -43,23 +57,15 @@ public class ReportActivity extends AppCompatActivity implements AdapterView.OnI
         //Setting the ArrayAdapter data on the Spinner
         spin2.setAdapter(aa2);
 
-        input_image = findViewById(R.id.input_image);
-        view_image = findViewById(R.id.view_image);
-
-        input_image.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                imagechooser();
-            }
-        });
     }
 
+    //select image
     void imagechooser(){
         Intent i = new Intent();
         i.setType("image/*");
         i.setAction(Intent.ACTION_GET_CONTENT);
 
-        startActivityForResult(Intent.createChooser(i, "Select Image"), select_image);
+        startActivityForResult(Intent.createChooser(i, "Select Image"), Reportselect_image);
     }
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -68,12 +74,12 @@ public class ReportActivity extends AppCompatActivity implements AdapterView.OnI
 
             // compare the resultCode with the
             // SELECT_PICTURE constant
-            if (requestCode == select_image) {
+            if (requestCode == Reportselect_image) {
                 // Get the url of the image from data
                 Uri selectedImageUri = data.getData();
                 if (null != selectedImageUri) {
                     // update the preview image in the layout
-                    view_image.setImageURI(selectedImageUri);
+                    Reportview_image.setImageURI(selectedImageUri);
                 }
             }
         }

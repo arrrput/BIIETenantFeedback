@@ -31,7 +31,7 @@ public class CancelFragment extends Fragment {
 
         // Here, we have created new array list and added data to it
         ArrayList<FeedModel> feedModelArrayList = new ArrayList<FeedModel>();
-        feedModelArrayList.add(new FeedModel("HTML and CSS", 4, R.drawable.logo));
+        feedModelArrayList.add(new FeedModel("Printer tidak mencetak", 4, R.drawable.logo));
 
         // we are initializing our adapter class and passing our arraylist to it.
         FeedAdapter feedAdapter = new FeedAdapter(getActivity(), feedModelArrayList);

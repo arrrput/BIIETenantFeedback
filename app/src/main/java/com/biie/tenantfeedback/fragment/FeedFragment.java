@@ -27,8 +27,8 @@ public class FeedFragment extends Fragment {
 
         // Here, we have created new array list and added data to it
         ArrayList<FeedModel> feedModelArrayList = new ArrayList<FeedModel>();
-        feedModelArrayList.add(new FeedModel("DSA in Java", 4, R.drawable.logo));
-        feedModelArrayList.add(new FeedModel("Java Course", 3, R.drawable.logo));
+        feedModelArrayList.add(new FeedModel("CCTV blur", 4, R.drawable.logo));
+        feedModelArrayList.add(new FeedModel("Jaringan WiFi lelet", 3, R.drawable.logo));
 
 
         // we are initializing our adapter class and passing our arraylist to it.
