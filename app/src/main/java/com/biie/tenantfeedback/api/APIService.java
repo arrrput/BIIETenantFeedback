@@ -1,9 +1,8 @@
 package com.biie.tenantfeedback.api;
 
-
 import com.biie.tenantfeedback.model.ProductResp;
 import com.biie.tenantfeedback.model.ReqLogin;
-import com.biie.tenantfeedback.model.ReqProduct;
+import com.biie.tenantfeedback.model.Simplist;
 import com.biie.tenantfeedback.model.UserResp;
 
 import retrofit2.Call;
@@ -16,7 +15,7 @@ public interface APIService {
     @POST("auth/login")
     Call<UserResp> postLogin(@Body ReqLogin u);
 
-    @GET("auth/product")
-    Call<ProductResp> GetProduct(@Body ReqProduct u);
+    @GET("products")
+    Call<Simplist> getProduct();
 
 }

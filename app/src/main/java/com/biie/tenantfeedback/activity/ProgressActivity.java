@@ -7,9 +7,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.FrameLayout;
-
+import com.biie.tenantfeedback.Dialog;
 import com.biie.tenantfeedback.fragment.CancelFragment;
 import com.biie.tenantfeedback.fragment.FeedFragment;
 import com.biie.tenantfeedback.fragment.FinishFragment;
@@ -29,6 +31,8 @@ public class ProgressActivity extends AppCompatActivity {
     Fragment fragment = null;
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
+
+    final Dialog loadingdialog = new Dialog(ProgressActivity.this);
 
 
     @SuppressLint("MissingInflatedId")
@@ -64,10 +68,22 @@ public class ProgressActivity extends AppCompatActivity {
 //        // Prepare view pager
 //        prepareViewPager(viewPager,arrayList);
 
-
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
+                loadingdialog.startLoadingdialog();
+
+                // using handler class to set time delay methods
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        // after 0.5 seconds
+                        loadingdialog.dismissdialog();
+                    }
+                }, 500); // 0.5 seconds
+
                 // Fragment fragment = null;
                 switch (tab.getPosition()) {
                     case 0:

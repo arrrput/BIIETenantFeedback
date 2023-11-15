@@ -1,101 +1,69 @@
 package com.biie.tenantfeedback.activity;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import com.biie.tenantfeedback.R;
 import com.biie.tenantfeedback.api.API;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-import android.view.View;
-import android.widget.Toast;
-import android.widget.Button;
-//import android.view.Menu;
-//import android.view.MenuInflater;
-//import android.view.MenuItem;
+import com.biie.tenantfeedback.api.APICallback;
+import com.biie.tenantfeedback.model.BadRequest;
+import com.biie.tenantfeedback.model.ReqLogin;
+import com.biie.tenantfeedback.model.UserResp;
 
 public class MainActivity extends AppCompatActivity {
 
-    CardView action_profile;
-    CardView action_report;
-    CardView action_progress;
-    CardView action_logout;
-    private int message;
+    private EditText mEmailEditText;
+    private EditText mPasswordEditText;
+    private Button mLoginButton;
 
-    //    private MenuItem item;
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (!API.isLogin()) {
-            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-            finish();
-        }
         setContentView(R.layout.activity_main);
 
-        action_profile = findViewById(R.id.action_profile);
-        action_report = findViewById(R.id.action_report);
-        action_progress = findViewById(R.id.action_progress);
-        action_logout = findViewById(R.id.action_logout);
+        // Initialize views
+        mEmailEditText = findViewById(R.id.email);
+        mPasswordEditText = findViewById(R.id.password);
+        mLoginButton = findViewById(R.id.login_button);
+        final EditText passwordInput = findViewById(R.id.password);
+        // Set click listener for login button
+        mLoginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Get the entered email and password
+                String email = mEmailEditText.getText().toString();
+                String password = mPasswordEditText.getText().toString();
+                if (!email.isEmpty() && !password.isEmpty()){
+                    login(email, password);
+                }
+            }
+        });
+    }
 
-        action_profile.setOnClickListener(new View.OnClickListener() {
+    public void login(String email, String password){
+        ReqLogin req = new ReqLogin();
+        req.setUsername(email);
+        req.setPassword(password);
+        API.service().postLogin(req).enqueue(new APICallback<UserResp>() {
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, ProfileActivity.class));
+            protected void onSuccess(UserResp userResp) {
+                API.setAccessToken(userResp.getToken());
+                API.setIsLogin(true);
+                API.setCurrentUser(userResp);
+                startActivity(new Intent(getApplicationContext(), MenuActivity.class));
+                finish();
             }
-        });
-        action_report.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, ReportActivity.class));
-            }
-        });
-        action_progress.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, ProgressActivity.class));
-            }
-        });
 
-        action_logout.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            protected void onError(BadRequest error) {
+
             }
         });
     }
 }
-
-
-//        @Override
-//        public boolean onCreateOptionsMenu(Menu menu) {
-//            // Inflate the menu; this adds items to the action bar if it is present.
-//            MenuInflater inflater = getMenuInflater();
-//            inflater.inflate(R.menu.menu_main, menu);
-//            // getMenuInflater().inflate(R.menu.menu_main, menu);
-//            return true;
-//        }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        // int id = item.getItemId();
-//        // noinspection SimplifiableIfStatement
-//        if (item.getItemId() == R.id.action_profile) {
-//            startActivity(new Intent(this, ProfileActivity.class));
-//        } else if (item.getItemId() == R.id.action_report) {
-//            startActivity(new Intent(this, ReportActivity.class));
-//        } else if (item.getItemId() == R.id.action_progress) {
-//            startActivity(new Intent(this,ProgressActivity.class));
-//        }
-//        return true;
-//        else if (item.getItemId() == R.id.action_settings) {
-//            startActivity(new Intent(this,));
-//        } else if (item.getItemId() == R.id.action_about) {
-//            startActivity(new Intent(this,));
-//        } else if (item.getItemId() == R.id.action_logout) {
-//            startActivity(new Intent(this,));
-//        }
-
-//        return super.onOptionsItemSelected(item);
-//    }

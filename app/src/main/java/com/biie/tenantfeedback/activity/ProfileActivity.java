@@ -19,7 +19,7 @@ public class ProfileActivity extends AppCompatActivity {
         confirm_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ProfileActivity.this, MainActivity.class));
+                startActivity(new Intent(ProfileActivity.this, MenuActivity.class));
             }
         });
     }
