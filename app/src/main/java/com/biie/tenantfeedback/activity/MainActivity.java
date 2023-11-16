@@ -8,18 +8,23 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.biie.tenantfeedback.Dialog;
 import com.biie.tenantfeedback.R;
 import com.biie.tenantfeedback.api.API;
 import com.biie.tenantfeedback.api.APICallback;
 import com.biie.tenantfeedback.model.BadRequest;
 import com.biie.tenantfeedback.model.ReqLogin;
 import com.biie.tenantfeedback.model.UserResp;
+import android.os.Handler;
 
 public class MainActivity extends AppCompatActivity {
 
     private EditText mEmailEditText;
     private EditText mPasswordEditText;
     private Button mLoginButton;
+    final Dialog loadingdialog = new Dialog(MainActivity.this);
+
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -50,6 +55,18 @@ public class MainActivity extends AppCompatActivity {
         ReqLogin req = new ReqLogin();
         req.setUsername(email);
         req.setPassword(password);
+
+        loadingdialog.startLoadingdialog();
+
+        // using handler class to set time delay methods
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                // after 1 seconds
+                loadingdialog.dismissdialog();
+            }
+        }, 1000); // 1 seconds
         API.service().postLogin(req).enqueue(new APICallback<UserResp>() {
             @Override
             protected void onSuccess(UserResp userResp) {
@@ -59,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), MenuActivity.class));
                 finish();
             }
+
 
             @Override
             protected void onError(BadRequest error) {
