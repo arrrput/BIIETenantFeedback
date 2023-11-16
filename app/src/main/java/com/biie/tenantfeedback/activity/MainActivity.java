@@ -56,17 +56,17 @@ public class MainActivity extends AppCompatActivity {
         req.setUsername(email);
         req.setPassword(password);
 
-        loadingdialog.startLoadingdialog();
+//        loadingdialog.startLoadingdialog();
 
-        // using handler class to set time delay methods
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                // after 1 seconds
-                loadingdialog.dismissdialog();
-            }
-        }, 1000); // 1 seconds
+//        // using handler class to set time delay methods
+//        Handler handler = new Handler();
+//        handler.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                // after 2 seconds
+//                loadingdialog.dismissdialog();
+//            }
+//        }, 2000); // 2 seconds
         API.service().postLogin(req).enqueue(new APICallback<UserResp>() {
             @Override
             protected void onSuccess(UserResp userResp) {
