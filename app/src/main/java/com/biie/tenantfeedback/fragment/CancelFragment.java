@@ -1,7 +1,5 @@
 package com.biie.tenantfeedback.fragment;
 
-import static com.biie.tenantfeedback.R.id.idRVCancel;
-
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
@@ -27,7 +25,7 @@ public class CancelFragment extends Fragment {
         // Initialize view
         View view =inflater.inflate(R.layout.fragment_cancel, container, false);
 
-        RecyclerView feedRV = view.findViewById(idRVCancel);
+        RecyclerView feedRV = view.findViewById(R.id.idRVCancel);
 
         // Here, we have created new array list and added data to it
         ArrayList<FeedModel> feedModelArrayList = new ArrayList<FeedModel>();

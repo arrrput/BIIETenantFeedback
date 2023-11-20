@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         req.setUsername(email);
         req.setPassword(password);
 
-//        loadingdialog.startLoadingdialog();
+//        loadingdialog.startLoadingdialog()
 
 //        // using handler class to set time delay methods
 //        Handler handler = new Handler();
