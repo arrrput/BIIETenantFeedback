@@ -14,7 +14,6 @@
         android:background="@drawable/bg_area"
         android:gravity="center"
         android:minHeight="220dp">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -64,12 +63,33 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
-                        android:layout_marginTop="50dp"
-                        android:layout_gravity="center"
-                        android:background="@drawable/circle_1" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/Profilview_image"
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
+                            android:layout_centerInParent="true"
+                            android:layout_marginTop="50dp"
+                            android:background="@drawable/circle_1"
+                            android:scaleType="centerInside" />
+
+                        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                            android:id="@+id/Profilinput_image"
+                            style="@style/FabStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginEnd="100dp"
+                            android:layout_marginBottom="40dp"
+                            android:background="@drawable/circle_1"
+                             />
+                    </RelativeLayout>
                     <TextView
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="5dp"
@@ -129,9 +149,7 @@
                         android:background="@drawable/rectangle_45"
                         android:text="CONFIRM"/>
                 </LinearLayout>
-
             </RelativeLayout>
-
         </ScrollView>
     </LinearLayout>
 </LinearLayout>

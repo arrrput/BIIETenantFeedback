@@ -1,13 +1,13 @@
 package com.biie.tenantfeedback.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.biie.tenantfeedback.Dialog;
 import com.biie.tenantfeedback.R;
@@ -16,7 +16,6 @@ import com.biie.tenantfeedback.api.APICallback;
 import com.biie.tenantfeedback.model.BadRequest;
 import com.biie.tenantfeedback.model.ReqLogin;
 import com.biie.tenantfeedback.model.UserResp;
-import android.os.Handler;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
     private EditText mPasswordEditText;
     private Button mLoginButton;
     final Dialog loadingdialog = new Dialog(MainActivity.this);
-
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -76,7 +74,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), MenuActivity.class));
                 finish();
             }
-
 
             @Override
             protected void onError(BadRequest error) {

@@ -1,6 +1,5 @@
 package com.biie.tenantfeedback.api;
 
-import com.biie.tenantfeedback.model.ProductResp;
 import com.biie.tenantfeedback.model.ReqLogin;
 import com.biie.tenantfeedback.model.Simplist;
 import com.biie.tenantfeedback.model.UserResp;
@@ -17,5 +16,8 @@ public interface APIService {
 
     @GET("products")
     Call<Simplist> getProduct();
+
+//    @Multipart
+//    @POST("api/upload_api.php");
 
 }
