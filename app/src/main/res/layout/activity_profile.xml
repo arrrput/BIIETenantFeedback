@@ -69,14 +69,15 @@
                         android:layout_centerInParent="true"
                         android:orientation="horizontal">
 
-                        <androidx.appcompat.widget.AppCompatImageView
+
+                        <de.hdodenhof.circleimageview.CircleImageView
                             android:id="@+id/Profilview_image"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
+                            android:src="@drawable/circle_1"
                             android:layout_centerInParent="true"
-                            android:layout_marginTop="50dp"
-                            android:background="@drawable/circle_1"
-                            android:scaleType="centerInside" />
+                            app:civ_border_width="0dp"
+                            app:civ_border_color="#FFFFFF"/>
 
                         <com.google.android.material.floatingactionbutton.FloatingActionButton
                             android:id="@+id/Profilinput_image"
