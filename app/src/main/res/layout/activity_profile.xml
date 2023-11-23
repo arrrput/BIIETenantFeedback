@@ -74,10 +74,10 @@
                             android:id="@+id/Profilview_image"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
-                            android:src="@drawable/circle_1"
                             android:layout_centerInParent="true"
-                            app:civ_border_width="0dp"
-                            app:civ_border_color="#FFFFFF"/>
+                            android:src="@drawable/circle_1"
+                            app:civ_border_color="#FFFFFF"
+                            app:civ_border_width="0dp" />
 
                         <com.google.android.material.floatingactionbutton.FloatingActionButton
                             android:id="@+id/Profilinput_image"
@@ -92,56 +92,67 @@
                              />
                     </RelativeLayout>
                     <TextView
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="3dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:text="Change Username"
                         android:textColor="#228B22" />
-                    <EditText
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:hint="  Enter your username"
-                        android:maxLines="1"
-                        android:singleLine="true"
-                        android:background="@drawable/rectangle_1" />
+                        android:hint="Enter your username">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </com.google.android.material.textfield.TextInputLayout>
+<!--                    <EditText-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:hint="  Enter your username"-->
+<!--                        android:maxLines="1"-->
+<!--                        android:singleLine="true"-->
+<!--                        android:background="@drawable/rectangle_1" />-->
                     <TextView
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="3dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:text="Change Email"
                         android:textColor="#228B22" />
-                    <EditText
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:hint="  Enter your email"
-                        android:maxLines="1"
-                        android:singleLine="true"
-                        android:background="@drawable/rectangle_1" />
+                        android:hint="Enter your email">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </com.google.android.material.textfield.TextInputLayout>
                     <TextView
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="3dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:text="Change Password"
                         android:textColor="#228B22" />
-                    <EditText
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:hint="  Enter your password"
-                        android:maxLines="1"
-                        android:singleLine="true"
-                        android:background="@drawable/rectangle_1" />
+                        android:hint="Enter your password">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </com.google.android.material.textfield.TextInputLayout>
                     <Button
                         android:id="@+id/confirm_profile"
-                        android:layout_marginTop="30dp"
+                        android:layout_marginTop="20dp"
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
                         android:layout_width="match_parent"
