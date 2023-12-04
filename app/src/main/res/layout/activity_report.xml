@@ -66,7 +66,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="150dp"
+                        android:layout_width="170dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="20dp"
@@ -93,13 +93,13 @@
 
                     <androidx.appcompat.widget.AppCompatSpinner
                         android:id="@+id/select_department"
-                        android:layout_width="150dp"
+                        android:layout_width="170dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="10dp"
                         android:layout_marginBottom="5dp"
-                        android:padding="5dp" />
+                        android:padding="15dp" />
 
                     <androidx.appcompat.widget.AppCompatSpinner
                         android:id="@+id/select_complaint"
@@ -109,7 +109,7 @@
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="10dp"
                         android:layout_marginBottom="5dp"
-                        android:padding="5dp" />
+                        android:padding="15dp" />
                 </LinearLayout>
 
                 <com.google.android.material.imageview.ShapeableImageView

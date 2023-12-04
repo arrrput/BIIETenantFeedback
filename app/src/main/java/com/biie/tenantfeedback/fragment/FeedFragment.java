@@ -1,14 +1,15 @@
 package com.biie.tenantfeedback.fragment;
 
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.biie.tenantfeedback.FeedAdapter;
 import com.biie.tenantfeedback.FeedModel;
 import com.biie.tenantfeedback.R;
@@ -42,7 +43,7 @@ public class FeedFragment extends Fragment {
                 Toast.makeText(getContext(), simplist.getList().get(0).getDescription(), Toast.LENGTH_SHORT).show();
                 for(int i = 0; i < simplist.getList().size(); i++){
                     feedModelArrayList.add(new FeedModel(simplist.getList().get(i).getTitle(), simplist.getList().get(i).getId(), R.drawable.logo));
-//                    feedModelArrayList.add(new FeedModel("Jaringan WiFi lelet", 3, R.drawable.logo));
+//                    feedModelArrayList.add(new FeedModel("Jaringan WiFi lelet", 3, R.dr   wable.logo));
                 }
                 FeedAdapter feedAdapter = new FeedAdapter(getActivity(), feedModelArrayList);
 

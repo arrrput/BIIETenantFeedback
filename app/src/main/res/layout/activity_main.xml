@@ -119,7 +119,7 @@
                             android:id="@+id/password"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Enter your password"
+                            android:hint="Password"
                             android:imeActionId="@+id/login"
                             android:imeOptions="actionUnspecified"
                             android:inputType="textPassword"

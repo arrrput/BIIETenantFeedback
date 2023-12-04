@@ -17,7 +17,11 @@ public interface APIService {
     @GET("products")
     Call<Simplist> getProduct();
 
-//    @Multipart
-//    @POST("api/upload_api.php");
+    @Multipart
+    @POST("api/upload_api.php")
+    Call<FileModel> callUploadApi(@Part MultipartBody.Part image, @Part("keterangan") RequestBody ket, @Part("pos") RequestBody pos, @Part("id_user") RequestBody idUser,
+                                  @Part("group") RequestBody group,
+                                  @Part("kargu") RequestBody kargu,
+                                  @Part("other") RequestBody other);
 
 }
