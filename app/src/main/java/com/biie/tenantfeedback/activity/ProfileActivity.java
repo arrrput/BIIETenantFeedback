@@ -25,6 +25,8 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+//        API.getCurrentUser().
+
         confirm_profile = findViewById(R.id.confirm_profile);
         Profilinput_image = findViewById(R.id.Profilinput_image);
         Profilview_image = findViewById(R.id.Profilview_image);

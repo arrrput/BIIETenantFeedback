@@ -15,7 +15,7 @@ import com.biie.tenantfeedback.api.API;
 import com.biie.tenantfeedback.api.APICallback;
 import com.biie.tenantfeedback.model.BadRequest;
 import com.biie.tenantfeedback.model.ReqLogin;
-import com.biie.tenantfeedback.model.UserResp;
+import com.biie.tenantfeedback.model.DataModel;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void login(String email, String password){
         ReqLogin req = new ReqLogin();
-        req.setUsername(email);
+        req.setEmail(email);
         req.setPassword(password);
 
 //        loadingdialog.startLoadingdialog()
@@ -65,16 +65,15 @@ public class MainActivity extends AppCompatActivity {
 //                loadingdialog.dismissdialog();
 //            }
 //        }, 2000); // 2 seconds
-        API.service().postLogin(req).enqueue(new APICallback<UserResp>() {
+        API.service().postLogin(req).enqueue(new APICallback<DataModel>() {
             @Override
-            protected void onSuccess(UserResp userResp) {
-                API.setAccessToken(userResp.getToken());
+            protected void onSuccess(DataModel dataModel) {
+                API.setAccessToken(dataModel.getToken_type());
                 API.setIsLogin(true);
-                API.setCurrentUser(userResp);
+                API.setCurrentUser(dataModel);
                 startActivity(new Intent(getApplicationContext(), MenuActivity.class));
                 finish();
             }
-
             @Override
             protected void onError(BadRequest error) {
 
