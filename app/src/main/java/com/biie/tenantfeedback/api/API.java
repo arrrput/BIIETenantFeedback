@@ -3,7 +3,7 @@ package com.biie.tenantfeedback.api;
 import android.content.Context;
 
 import com.biie.tenantfeedback.model.BadRequest;
-import com.biie.tenantfeedback.model.DataModel;
+import com.biie.tenantfeedback.model.UserDetails;
 import com.orhanobut.hawk.Hawk;
 
 import java.io.IOException;
@@ -21,7 +21,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class API {
 
-    public static final String ROOT_URL = "https://feedback.biiebigdata.co.id/api/";
+    public static final String ROOT_URL = "http://192.168.68.145:8080/api/";
     private static final String AUTHORIZATION = "Authorization";
     private static final boolean PRINT_DELAY = false;
     private static final boolean INTRO = false;
@@ -101,14 +101,13 @@ public class API {
         return null;
     }
 
-    public static void setCurrentUser(DataModel user) {
+    public static void setCurrentUser(UserDetails user) {
         Hawk.put(USER, user);
     }
 
-    public static DataModel getCurrentUser() {
+    public static UserDetails getCurrentUser() {
         return Hawk.get(USER);
     }
-
 
     public static void setIntro(boolean ISTRO){Hawk.put(ISDONE, ISTRO);}
 

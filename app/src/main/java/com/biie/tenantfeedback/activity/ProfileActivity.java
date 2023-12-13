@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.biie.tenantfeedback.R;
+import com.biie.tenantfeedback.api.API;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class ProfileActivity extends AppCompatActivity {
@@ -25,7 +26,7 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-//        API.getCurrentUser().
+        API.getCurrentUser().getName();
 
         confirm_profile = findViewById(R.id.confirm_profile);
         Profilinput_image = findViewById(R.id.Profilinput_image);

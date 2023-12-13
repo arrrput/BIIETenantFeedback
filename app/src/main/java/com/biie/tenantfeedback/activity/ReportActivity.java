@@ -16,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.biie.tenantfeedback.R;
 
 public class ReportActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    String[] department = { "A", "B", "C", "D", "E"};
+    String[] department = { "IT & Media", "Admin And Legal", "Estate", "Environtment", "Security and Safety"};
     String[] complaint = { "F", "G", "H", "I", "J"};
 
     Button confirm_report;

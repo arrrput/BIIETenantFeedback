@@ -1,6 +1,6 @@
 package com.biie.tenantfeedback.api;
 
-import com.biie.tenantfeedback.model.DataModel;
+import com.biie.tenantfeedback.model.LoginModel;
 import com.biie.tenantfeedback.model.ReqLogin;
 import com.biie.tenantfeedback.model.Simplist;
 
@@ -12,7 +12,7 @@ import retrofit2.http.POST;
 public interface APIService {
 
     @POST("login")
-    Call<DataModel> postLogin(@Body ReqLogin u);
+    Call<LoginModel> postLogin(@Body ReqLogin u);
 
     @GET("products")
     Call<Simplist> getProduct();

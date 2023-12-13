@@ -6,16 +6,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.biie.tenantfeedback.Dialog;
 import com.biie.tenantfeedback.R;
 import com.biie.tenantfeedback.api.API;
-import com.biie.tenantfeedback.api.APICallback;
-import com.biie.tenantfeedback.model.BadRequest;
+import com.biie.tenantfeedback.model.LoginModel;
 import com.biie.tenantfeedback.model.ReqLogin;
-import com.biie.tenantfeedback.model.DataModel;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -65,18 +68,19 @@ public class MainActivity extends AppCompatActivity {
 //                loadingdialog.dismissdialog();
 //            }
 //        }, 2000); // 2 seconds
-        API.service().postLogin(req).enqueue(new APICallback<DataModel>() {
+        API.service().postLogin(req).enqueue(new Callback<LoginModel>() {
             @Override
-            protected void onSuccess(DataModel dataModel) {
-                API.setAccessToken(dataModel.getToken_type());
-                API.setIsLogin(true);
-                API.setCurrentUser(dataModel);
+            public void onResponse(Call<LoginModel> call, Response<LoginModel> response) {
+//                API.setAccessToken(response.body().getData().getToken_type()+""+response.body().getData().getAccess_token());
+//                API.setIsLogin(true);
+//                API.setCurrentUser(response.body().getData().getUser());
                 startActivity(new Intent(getApplicationContext(), MenuActivity.class));
                 finish();
             }
-            @Override
-            protected void onError(BadRequest error) {
 
+            @Override
+            public void onFailure(Call<LoginModel> call, Throwable t) {
+                Toast.makeText(loadingdialog, t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
