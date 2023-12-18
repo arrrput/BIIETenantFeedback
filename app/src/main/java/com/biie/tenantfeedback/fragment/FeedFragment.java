@@ -4,21 +4,21 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.biie.tenantfeedback.FeedAdapter;
-import com.biie.tenantfeedback.FeedModel;
 import com.biie.tenantfeedback.R;
 import com.biie.tenantfeedback.api.API;
 import com.biie.tenantfeedback.api.APICallback;
 import com.biie.tenantfeedback.model.BadRequest;
-import com.biie.tenantfeedback.model.Simplist;
+import com.biie.tenantfeedback.model.FeedModel;
+import com.biie.tenantfeedback.model.RequestModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class FeedFragment extends Fragment {
     // Initialize variable
@@ -31,27 +31,23 @@ public class FeedFragment extends Fragment {
 
         feedRV = view.findViewById(R.id.idRVFeed);
 
-        getProduct();
+        getOnRequest();
         // return view
         return view;
     }
-    void getProduct(){
-        API.service().getProduct().enqueue(new APICallback<Simplist>() {
+    void getOnRequest(){
+
+        API.service().getRequest("2").enqueue(new APICallback<List<RequestModel>>() {
             @Override
-            protected void onSuccess(Simplist simplist) {
-                simplist.getList().get(0).getDescription();
-                Toast.makeText(getContext(), simplist.getList().get(0).getDescription(), Toast.LENGTH_SHORT).show();
-                for(int i = 0; i < simplist.getList().size(); i++){
-                    feedModelArrayList.add(new FeedModel(simplist.getList().get(i).getTitle(), simplist.getList().get(i).getId(), R.drawable.logo));
-//                    feedModelArrayList.add(new FeedModel("Jaringan WiFi lelet", 3, R.dr   wable.logo));
+            protected void onSuccess(List<RequestModel> requestModels) {
+                for (int i = 0; i < requestModels.size(); i++){
+                    feedModelArrayList.add(new FeedModel(requestModels.get(i).getDescription(),
+                            requestModels.get(i).getProgress_request(), R.drawable.logo));
+
                 }
                 FeedAdapter feedAdapter = new FeedAdapter(getActivity(), feedModelArrayList);
-
-                // below line is for setting a layout manager for our recycler view.
-                // here we are creating vertical list so we will provide orientation as vertical
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
 
-                // in below two lines we are setting layoutmanager and adapter to our recycler view.
                 feedRV.setLayoutManager(linearLayoutManager);
                 feedRV.setAdapter(feedAdapter);
             }

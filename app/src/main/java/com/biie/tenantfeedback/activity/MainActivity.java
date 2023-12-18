@@ -71,9 +71,9 @@ public class MainActivity extends AppCompatActivity {
         API.service().postLogin(req).enqueue(new Callback<LoginModel>() {
             @Override
             public void onResponse(Call<LoginModel> call, Response<LoginModel> response) {
-//                API.setAccessToken(response.body().getData().getToken_type()+""+response.body().getData().getAccess_token());
-//                API.setIsLogin(true);
-//                API.setCurrentUser(response.body().getData().getUser());
+                API.setAccessToken(response.body().getData().getToken_type()+" "+response.body().getData().getAccess_token());
+                API.setIsLogin(true);
+                API.setCurrentUser(response.body().getData().getUser());
                 startActivity(new Intent(getApplicationContext(), MenuActivity.class));
                 finish();
             }

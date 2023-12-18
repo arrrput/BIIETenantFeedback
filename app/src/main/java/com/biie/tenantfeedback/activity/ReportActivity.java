@@ -16,8 +16,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.biie.tenantfeedback.R;
 
 public class ReportActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    String[] department = { "IT & Media", "Admin And Legal", "Estate", "Environtment", "Security and Safety"};
-    String[] complaint = { "F", "G", "H", "I", "J"};
+    String[] department = { "IT & Media", "Admin And Legal", "Estate", "GMO", "Security and Safety"};
+    String[] complaint = { "Softwaree", "Hardware", "Environment", "Building", "Other"};
 
     Button confirm_report;
     Button Reportinput_image;

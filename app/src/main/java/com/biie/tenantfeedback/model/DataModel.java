@@ -1,10 +1,13 @@
 package com.biie.tenantfeedback.model;
 
+import com.google.gson.annotations.SerializedName;
+
 public class DataModel {
 
     private String access_token;
     private String token_type;
 
+    @SerializedName("user")
     private UserDetails user;
     public String getAccess_token() {
         return access_token;

@@ -4,13 +4,13 @@ public class UserDetails {
 
         private int id;
         private String name;
-        private int email;
-        private int email_verified_at;
-        private int created_at;
-        private int updated_at;
+        private String email;
+        private String email_verified_at;
+        private String created_at;
+        private String updated_at;
         private int id_department;
-        private int image;
-        private int nohp;
+        private String image;
+        private String nohp;
 
         public UserDetails() {
         }
@@ -31,35 +31,35 @@ public class UserDetails {
             this.name = name;
         }
 
-        public int getEmail() {
+        public String getEmail() {
             return email;
         }
 
-        public void setEmail(int email) {
+        public void setEmail(String email) {
             this.email = email;
         }
 
-        public int getEmail_verified_at() {
+        public String getEmail_verified_at() {
             return email_verified_at;
         }
 
-        public void setEmail_verified_at(int email_verified_at) {
+        public void setEmail_verified_at(String email_verified_at) {
             this.email_verified_at = email_verified_at;
         }
 
-        public int getCreated_at() {
+        public String getCreated_at() {
             return created_at;
         }
 
-        public void setCreated_at(int created_at) {
+        public void setCreated_at(String created_at) {
             this.created_at = created_at;
         }
 
-        public int getUpdated_at() {
+        public String getUpdated_at() {
             return updated_at;
         }
 
-        public void setUpdated_at(int updated_at) {
+        public void setUpdated_at(String updated_at) {
             this.updated_at = updated_at;
         }
 
@@ -71,19 +71,19 @@ public class UserDetails {
             this.id_department = id_department;
         }
 
-        public int getImage() {
+        public String getImage() {
             return image;
         }
 
-        public void setImage(int image) {
+        public void setImage(String image) {
             this.image = image;
         }
 
-        public int getNohp() {
+        public String getNohp() {
             return nohp;
         }
 
-        public void setNohp(int nohp) {
+        public void setNohp(String nohp) {
             this.nohp = nohp;
         }
 }

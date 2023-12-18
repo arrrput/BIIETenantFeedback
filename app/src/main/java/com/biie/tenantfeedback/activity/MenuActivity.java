@@ -3,13 +3,14 @@ package com.biie.tenantfeedback.activity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import com.biie.tenantfeedback.R;
-import com.biie.tenantfeedback.api.API;
+import android.util.Log;
+import android.view.View;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
-import android.view.Menu;
-import android.view.View;
+import com.biie.tenantfeedback.R;
+import com.biie.tenantfeedback.api.API;
 //import android.view.Menu;
 //import android.view.MenuInflater;
 //import android.view.MenuItem;
@@ -32,7 +33,7 @@ public class MenuActivity extends AppCompatActivity {
             finish();
         }
         setContentView(R.layout.activity_menu);
-
+        Log.e("token", API.getAccessToken());
         action_profile = findViewById(R.id.action_profile);
         action_report = findViewById(R.id.action_report);
         action_progress = findViewById(R.id.action_progress);

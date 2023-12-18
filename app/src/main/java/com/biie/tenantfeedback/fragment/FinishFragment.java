@@ -2,22 +2,30 @@ package com.biie.tenantfeedback.fragment;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.biie.tenantfeedback.FeedAdapter;
-import com.biie.tenantfeedback.FeedModel;
 import com.biie.tenantfeedback.R;
+import com.biie.tenantfeedback.api.API;
+import com.biie.tenantfeedback.api.APICallback;
+import com.biie.tenantfeedback.model.BadRequest;
+import com.biie.tenantfeedback.model.FeedModel;
+import com.biie.tenantfeedback.model.RequestModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class FinishFragment extends Fragment {
     // Initialize variable
+
+    RecyclerView feedRV;
+    ArrayList<FeedModel> feedModelArrayList = new ArrayList<FeedModel>();
     @Override
     @SuppressLint("MissingInflatedId")
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -25,25 +33,35 @@ public class FinishFragment extends Fragment {
         // Initialize view
         View view =inflater.inflate(R.layout.fragment_finish, container, false);
 
-        RecyclerView feedRV = view.findViewById(R.id.idRVFinish);
+        feedRV = view.findViewById(R.id.idRVFinish);
 
-        // Here, we have created new array list and added data to it
-        ArrayList<FeedModel> feedModelArrayList = new ArrayList<FeedModel>();
-        feedModelArrayList.add(new FeedModel("Kabel WiFi putus", 4, R.drawable.logo));
-        feedModelArrayList.add(new FeedModel("WiFi tidak tersambung ke perangkat", 4, R.drawable.logo));
+        getFinishRequest();
 
-
-        // we are initializing our adapter class and passing our arraylist to it.
-        FeedAdapter feedAdapter = new FeedAdapter(getActivity(), feedModelArrayList);
-
-        // below line is for setting a layout manager for our recycler view.
-        // here we are creating vertical list so we will provide orientation as vertical
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-
-        // in below two lines we are setting layoutmanager and adapter to our recycler view.
-        feedRV.setLayoutManager(linearLayoutManager);
-        feedRV.setAdapter(feedAdapter);
-        // return view
         return view;
+    }
+
+    void getFinishRequest(){
+
+        API.service().getRequest("4").enqueue(new APICallback<List<RequestModel>>() {
+            @Override
+            protected void onSuccess(List<RequestModel> requestModels) {
+
+                for (int i = 0; i < requestModels.size(); i++){
+                    feedModelArrayList.add(new FeedModel(requestModels.get(i).getDescription(),
+                            requestModels.get(i).getProgress_request(), R.drawable.logo));
+
+                }
+                FeedAdapter feedAdapter = new FeedAdapter(getActivity(), feedModelArrayList);
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+
+                feedRV.setLayoutManager(linearLayoutManager);
+                feedRV.setAdapter(feedAdapter);
+            }
+
+            @Override
+            protected void onError(BadRequest error) {
+
+            }
+        });
     }
 }

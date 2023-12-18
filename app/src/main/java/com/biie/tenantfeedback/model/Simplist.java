@@ -1,20 +1,18 @@
-package com.biie.tenantfeedback.model;
-
-import com.google.gson.annotations.SerializedName;
-import java.util.ArrayList;
-
-public class Simplist {
-
-    @SerializedName("products")
-    private ArrayList <ProductResp> list ;
-    public Simplist () {
-    }
-
-    public ArrayList<ProductResp> getList() {
-        return list;
-    }
-
-    public void setList(ArrayList<ProductResp> list) {
-        this.list = list;
-    }
-}
+//package com.biie.tenantfeedback.model;
+//
+//import java.util.ArrayList;
+//
+//public class Simplist {
+//
+//    private ArrayList <RequestModel> list ;
+//    public Simplist () {
+//    }
+//
+//    public ArrayList<RequestModel> getList() {
+//        return list;
+//    }
+//
+//    public void setList(ArrayList<RequestModel> list) {
+//        this.list = list;
+//    }
+//}

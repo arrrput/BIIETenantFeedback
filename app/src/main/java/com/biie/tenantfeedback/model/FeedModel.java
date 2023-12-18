@@ -1,4 +1,4 @@
-package com.biie.tenantfeedback;
+package com.biie.tenantfeedback.model;
 public class FeedModel {
 
     private String feed_name;
