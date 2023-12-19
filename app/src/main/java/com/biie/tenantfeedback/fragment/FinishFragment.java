@@ -48,7 +48,7 @@ public class FinishFragment extends Fragment {
 
                 for (int i = 0; i < requestModels.size(); i++){
                     feedModelArrayList.add(new FeedModel(requestModels.get(i).getDescription(),
-                            requestModels.get(i).getProgress_request(), R.drawable.logo));
+                            requestModels.get(i).getCreated_at(),requestModels.get(i).getImage()));
 
                 }
                 FeedAdapter feedAdapter = new FeedAdapter(getActivity(), feedModelArrayList);

@@ -6,10 +6,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.biie.tenantfeedback.model.FeedModel;
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
@@ -37,8 +39,13 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
         // to set data to textview and imageview of each card layout
         FeedModel model = feedModelArrayList.get(position);
         holder.feedNameTV.setText(model.getFeed_name());
-        holder.feedRatingTV.setText("" + model.getFeed_rating());
-        holder.feedIV.setImageResource(model.getFeed_image());
+        holder.feedTimeTV.setText(String.valueOf(model.getFeed_time().toString()));
+
+//        Timestamp ts = new Timestamp( model.getCreated_at());
+//        holder.feedIV.setImageResource(model.getFeed_image());
+        Glide.with(context)
+                .load("http://192.168.68.127:8080/storage/img_progress/"+model.getFeed_image())
+                .into(holder.feedIV);
     }
 
     @Override
@@ -51,13 +58,13 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final ImageView feedIV;
         private final TextView feedNameTV;
-        private final TextView feedRatingTV;
+        private final TextView feedTimeTV;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             feedIV = itemView.findViewById(R.id.idIVFeedImage);
             feedNameTV = itemView.findViewById(R.id.idTVFeedName);
-            feedRatingTV = itemView.findViewById(R.id.idTVFeedRating);
+            feedTimeTV = itemView.findViewById(R.id.idTVFeedTime);
         }
     }
 }
