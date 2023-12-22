@@ -10,9 +10,9 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="220dp"
+        android:layout_height="120dp"
         android:gravity="center"
-        android:minHeight="220dp"
+        android:minHeight="120dp"
         android:background="@drawable/bg_area">
 
         <LinearLayout
@@ -60,11 +60,80 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:orientation="vertical">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/Reportview_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center" />
+
+                <Button
+                    android:id="@+id/Reportinput_image"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/rectangle_45"
+                    android:text="Select Image" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="170dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:text=" Location"
+                        android:textColor="#228B22"
+                        android:title="Location" />
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:text=" No. Unit"
+                        android:textColor="#228B22"
+                        android:title="No. Unit" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter your location">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/input_location"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter your no. unit"
+                        android:layout_marginStart="10dp">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/input_nounit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
                     <TextView
                         android:layout_width="170dp"
                         android:layout_height="wrap_content"
@@ -93,11 +162,9 @@
 
                     <androidx.appcompat.widget.AppCompatSpinner
                         android:id="@+id/select_department"
-                        android:layout_width="170dp"
+                        android:layout_width="200dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
                         android:layout_marginTop="5dp"
-                        android:layout_marginEnd="10dp"
                         android:layout_marginBottom="5dp"
                         android:padding="15dp" />
 
@@ -107,26 +174,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="5dp"
-                        android:layout_marginEnd="10dp"
                         android:layout_marginBottom="5dp"
                         android:padding="15dp" />
                 </LinearLayout>
-
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/Reportview_image"
-                    android:layout_width="200dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center" />
-
-                <Button
-                    android:id="@+id/Reportinput_image"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:background="@drawable/rectangle_45"
-                    android:text="Select Image" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -143,6 +193,7 @@
                     android:layout_height="wrap_content"
                     android:hint="Enter your description">
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/input_desc"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
                 </com.google.android.material.textfield.TextInputLayout>

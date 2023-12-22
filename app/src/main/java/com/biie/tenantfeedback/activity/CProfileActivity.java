@@ -6,17 +6,18 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.biie.tenantfeedback.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class CProfileActivity extends AppCompatActivity {
     Button confirm_profile;
     FloatingActionButton Profilinput_image;
-    ImageView Profilview_image;
+    CircleImageView Profilview_image;
 
     int Profilselect_image = 100;
     @SuppressLint("MissingInflatedId")

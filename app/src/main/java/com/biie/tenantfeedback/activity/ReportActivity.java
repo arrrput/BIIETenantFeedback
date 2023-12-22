@@ -1,5 +1,7 @@
 package com.biie.tenantfeedback.activity;
 
+import static java.lang.String.valueOf;
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
@@ -13,15 +15,19 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.biie.tenantfeedback.R;
+import com.google.android.material.textfield.TextInputEditText;
 
 public class ReportActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     String[] department = { "IT & Media", "Admin And Legal", "Estate", "GMO", "Security and Safety"};
-    String[] complaint = { "Softwaree", "Hardware", "Environment", "Building", "Other"};
-
-    Button confirm_report;
-    Button Reportinput_image;
+    String[] complaint = { "Software", "Hardware", "Environment", "Building", "Other"};
     ImageView Reportview_image;
+    Button Reportinput_image;
+    TextInputEditText location;
+    TextInputEditText nounit;
+    TextInputEditText desc;
+    Button confirm_report;
     int Reportselect_image = 200;
     @SuppressLint("MissingInflatedId")
     @Override
@@ -31,11 +37,17 @@ public class ReportActivity extends AppCompatActivity implements AdapterView.OnI
 
         Reportinput_image = findViewById(R.id.Reportinput_image);
         Reportview_image = findViewById(R.id.Reportview_image);
+        location = findViewById(R.id.input_location);
+        nounit = findViewById(R.id.input_nounit);
+        desc = findViewById(R.id.input_desc);
         confirm_report = findViewById(R.id.confirm_report);
+
         confirm_report.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ReportActivity.this, ProgressActivity.class));
+                String reporting = valueOf(location.getText()) + valueOf(nounit.getText()) + valueOf(desc.getText());
+                Toast.makeText( ReportActivity.this, reporting, Toast.LENGTH_LONG).show();
+//                startActivity(new Intent(ReportActivity.this, ProgressActivity.class));
             }
         });
         //select image
@@ -63,7 +75,6 @@ public class ReportActivity extends AppCompatActivity implements AdapterView.OnI
         aa2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         //Setting the ArrayAdapter data on the Spinner
         spin2.setAdapter(aa2);
-
     }
 
     //select image
