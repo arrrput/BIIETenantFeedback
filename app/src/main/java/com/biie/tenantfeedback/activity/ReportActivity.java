@@ -1,11 +1,10 @@
 package com.biie.tenantfeedback.activity;
 
-import static java.lang.String.valueOf;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -17,9 +16,18 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.biie.tenantfeedback.R;
+import com.bumptech.glide.Glide;
+import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.google.android.material.textfield.TextInputEditText;
 
-public class ReportActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+import java.io.File;
+
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+
+public class ReportActivity extends AppCompatActivity  {
+    String depselect, compselect;
     String[] department = { "IT & Media", "Admin And Legal", "Estate", "GMO", "Security and Safety"};
     String[] complaint = { "Software", "Hardware", "Environment", "Building", "Other"};
     ImageView Reportview_image;
@@ -29,6 +37,8 @@ public class ReportActivity extends AppCompatActivity implements AdapterView.OnI
     TextInputEditText desc;
     Button confirm_report;
     int Reportselect_image = 200;
+
+    private Uri mCameraUri;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,11 +55,28 @@ public class ReportActivity extends AppCompatActivity implements AdapterView.OnI
         confirm_report.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String reporting = valueOf(location.getText()) + valueOf(nounit.getText()) + valueOf(desc.getText());
-                Toast.makeText( ReportActivity.this, reporting, Toast.LENGTH_LONG).show();
-//                startActivity(new Intent(ReportActivity.this, ProgressActivity.class));
+
+                File file =new File( mCameraUri.getPath());
+                RequestBody requestBody = RequestBody.create(MediaType.parse("multipart/form-data"),file);
+
+                MultipartBody.Part image = MultipartBody.Part.createFormData("sendimage",file.getName(),requestBody);
+                RequestBody lokasi = RequestBody.create(MediaType.parse("text/plain"), location.getText().toString());
+                RequestBody no_unit = RequestBody.create(MediaType.parse("text/plain"), nounit.getText().toString());
+                RequestBody description = RequestBody.create(MediaType.parse("text/plain"), desc.getText().toString());
+                RequestBody id_department = RequestBody.create(MediaType.parse("text/plain"), department.getClass().toString());
+                RequestBody id_part = RequestBody.create(MediaType.parse("text/plain"), complaint.getClass().toString());
+
+
+
+//                String reporting = valueOf(location.getText()) + " "
+//                        + valueOf(nounit.getText()) + System.getProperty("line.separator") + valueOf(desc.getText()) ;
+//                Toast.makeText( ReportActivity.this, reporting, Toast.LENGTH_LONG).show();
+
+                startActivity(new Intent(ReportActivity.this, ProgressActivity.class));
             }
         });
+
+
         //select image
         Reportinput_image.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,8 +86,7 @@ public class ReportActivity extends AppCompatActivity implements AdapterView.OnI
         });
 
         //Getting the instance of Spinner and applying OnItemSelectedListener on it
-        Spinner spin1 = (Spinner) findViewById(R.id.select_department);
-        spin1.setOnItemSelectedListener(this);
+        Spinner spin1 = findViewById(R.id.select_department);
         //Creating the ArrayAdapter instance having the department list
         ArrayAdapter aa1 = new ArrayAdapter(this,android.R.layout.simple_spinner_item,department);
         aa1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -68,50 +94,80 @@ public class ReportActivity extends AppCompatActivity implements AdapterView.OnI
         spin1.setAdapter(aa1);
 
         //Getting the instance of Spinner and applying OnItemSelectedListener on it
-        Spinner spin2 = (Spinner) findViewById(R.id.select_complaint);
-        spin2.setOnItemSelectedListener(this);
+        Spinner spin2 = findViewById(R.id.select_complaint);
         //Creating the ArrayAdapter instance having the complaint list
         ArrayAdapter aa2 = new ArrayAdapter(this,android.R.layout.simple_spinner_item,complaint);
         aa2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         //Setting the ArrayAdapter data on the Spinner
         spin2.setAdapter(aa2);
+
+        spin1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                depselect = department[position];
+                Toast.makeText(ReportActivity.this, department[position], Toast.LENGTH_SHORT).show();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // Auto-generated method stub
+            }
+
+        });
+
+        spin2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                compselect = complaint[position];
+                Toast.makeText(ReportActivity.this, complaint[position], Toast.LENGTH_SHORT).show();
+            }
+
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // Auto-generated method stub
+            }
+
+        });
     }
 
+//    void PostReport(){
+//        API.service().callUploadApi().enqueue(new APICallback<PostModel>() {
+//            @Override
+//            protected void onSuccess(PostModel postModel) {
+//
+//            }
+//
+//
+//            @Override
+//            protected void onError(BadRequest error) {
+//
+//            }
+//        });
+//    }
     //select image
     void imagechooser(){
-        Intent i = new Intent();
-        i.setType("image/*");
-        i.setAction(Intent.ACTION_GET_CONTENT);
-
-        startActivityForResult(Intent.createChooser(i, "Select Image"), Reportselect_image);
+        ImagePicker.with(this)
+                .cropSquare()                   //Crop image(Optional), Check Customization for more option
+                .saveDir(getApplicationContext().getExternalFilesDir(Environment.DIRECTORY_PICTURES))
+                .compress(512)          //Final image size will be less than 1 MB(Optional)
+                .maxResultSize(420, 420)    //Final image resolution will be less than 1080 x 1080(Optional)
+                .createIntent(intent -> {
+                    startActivityForResult(intent, 0);
+                    return null;
+                });
     }
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
-        if (resultCode == RESULT_OK) {
-
-            // compare the resultCode with the
-            // SELECT_PICTURE constant
-            if (requestCode == Reportselect_image) {
-                // Get the url of the image from data
-                Uri selectedImageUri = data.getData();
-                if (null != selectedImageUri) {
-                    // update the preview image in the layout
-                    Reportview_image.setImageURI(selectedImageUri);
-                }
+        Uri uri = data.getData();
+        if (resultCode == RESULT_OK){
+            if (requestCode == 0){
+                mCameraUri = uri;
+                Glide.with(getApplicationContext())
+                        .load(uri)
+                        .into(Reportview_image);
+//                uploadPhoto();
             }
         }
-    }
-
-    //Performing action onItemSelected and onNothing selected
-    @Override
-    public void onItemSelected(AdapterView<?> arg0, View arg1, int position, long id) {
-        Toast.makeText(getApplicationContext(),department[position] , Toast.LENGTH_SHORT).show();
-        Toast.makeText(getApplicationContext(),complaint[position] , Toast.LENGTH_SHORT).show();
-    }
-    @Override
-    public void onNothingSelected(AdapterView<?> arg0) {
-        // TODO Auto-generated method stub
     }
 
 }
