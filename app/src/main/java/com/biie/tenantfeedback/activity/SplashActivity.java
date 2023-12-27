@@ -26,7 +26,7 @@ public class SplashActivity extends AppCompatActivity {
             public void run() {
                 // on below line we are
                 // creating a new intent
-                Intent j = new Intent(SplashActivity.this, MainActivity.class);
+                Intent j = new Intent(SplashActivity.this, MenuActivity.class);
 
                 // on below line we are
                 // starting a new activity.

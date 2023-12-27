@@ -2,7 +2,7 @@ package com.biie.tenantfeedback.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class DataModel {
+public class DataLoginModel {
 
     private String access_token;
     private String token_type;

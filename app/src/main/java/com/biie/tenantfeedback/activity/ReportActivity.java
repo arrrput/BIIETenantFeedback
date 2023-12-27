@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,7 +17,12 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.biie.tenantfeedback.Dialog;
 import com.biie.tenantfeedback.R;
+import com.biie.tenantfeedback.api.API;
+import com.biie.tenantfeedback.api.APICallback;
+import com.biie.tenantfeedback.model.BadRequest;
+import com.biie.tenantfeedback.model.PostModel;
 import com.bumptech.glide.Glide;
 import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.google.android.material.textfield.TextInputEditText;
@@ -27,15 +34,24 @@ import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 
 public class ReportActivity extends AppCompatActivity  {
-    String depselect, compselect;
-    String[] department = { "IT & Media", "Admin And Legal", "Estate", "GMO", "Security and Safety"};
-    String[] complaint = { "Software", "Hardware", "Environment", "Building", "Other"};
+    String depselect, partselect;
+    String[] department = { "IT & Media", "Admin And Legal", "Estate", "Environtment", "Security and Safety",
+            "Business Development and Villa", "Project & Port Ops", "Finance", "GMO", "HR and GA",
+            "Integrated Management System", "Community Development", "Customer Relations"};
+    int[] depvalue = {1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14};
+    String[] part = { "Internet Did not work", "Wifi Unstable", "Parmit", "Export Import", "Building", "Infrastructure",
+            "Power Supply", "Water Supply", "Plumbing and Sanitary", "Area Cleaning", "Pest Control", "Security",
+            "Animal Disturbance", "Others", "Grass cutting", "Others", "Traffic", "Fire", "Others", "Contract",
+            "Compliance", "Others", "Villa", "EV Resto", "Township apartment"};
+    int[] partvalue = {1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25};
+//    {1, 1, 2, 2, 4, 4, 4, 4, 4, 5, 5, 6, 6, 4, 5, 5, 6, 6, 6, 2, 2, 2, 7, 7, 7};
     ImageView Reportview_image;
     Button Reportinput_image;
     TextInputEditText location;
     TextInputEditText nounit;
     TextInputEditText desc;
     Button confirm_report;
+    final Dialog loadingdialog = new Dialog(ReportActivity.this);
     int Reportselect_image = 200;
 
     private Uri mCameraUri;
@@ -56,23 +72,45 @@ public class ReportActivity extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
 
+                loadingdialog.startLoadingdialog();
+
+                // using handler class to set time delay methods
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        // after 0.5 seconds
+                        loadingdialog.dismissdialog();
+                    }
+                }, 500); // 0.5 seconds
+
                 File file =new File( mCameraUri.getPath());
                 RequestBody requestBody = RequestBody.create(MediaType.parse("multipart/form-data"),file);
 
-                MultipartBody.Part image = MultipartBody.Part.createFormData("sendimage",file.getName(),requestBody);
+                MultipartBody.Part image = MultipartBody.Part.createFormData("image",file.getName(),requestBody);
                 RequestBody lokasi = RequestBody.create(MediaType.parse("text/plain"), location.getText().toString());
                 RequestBody no_unit = RequestBody.create(MediaType.parse("text/plain"), nounit.getText().toString());
+                RequestBody id_department = RequestBody.create(MediaType.parse("text/plain"), depselect.toString());
+                RequestBody id_part = RequestBody.create(MediaType.parse("text/plain"), partselect.toString());
                 RequestBody description = RequestBody.create(MediaType.parse("text/plain"), desc.getText().toString());
-                RequestBody id_department = RequestBody.create(MediaType.parse("text/plain"), department.getClass().toString());
-                RequestBody id_part = RequestBody.create(MediaType.parse("text/plain"), complaint.getClass().toString());
 
+                API.service().callUploadApi(image, lokasi, no_unit, id_department, id_part, description).enqueue(new APICallback<PostModel>() {
+                    @Override
+                    protected void onSuccess(PostModel postModel) {
+                        Toast.makeText(ReportActivity.this, "Reporting Success", Toast.LENGTH_SHORT).show();
+                        finish();
+                    }
 
+                    @Override
+                    protected void onError(BadRequest error) {
+                        Toast.makeText(ReportActivity.this, "Reporting Failed", Toast.LENGTH_SHORT).show();
 
+                    }
+                });
 //                String reporting = valueOf(location.getText()) + " "
 //                        + valueOf(nounit.getText()) + System.getProperty("line.separator") + valueOf(desc.getText()) ;
 //                Toast.makeText( ReportActivity.this, reporting, Toast.LENGTH_LONG).show();
 
-                startActivity(new Intent(ReportActivity.this, ProgressActivity.class));
             }
         });
 
@@ -94,9 +132,9 @@ public class ReportActivity extends AppCompatActivity  {
         spin1.setAdapter(aa1);
 
         //Getting the instance of Spinner and applying OnItemSelectedListener on it
-        Spinner spin2 = findViewById(R.id.select_complaint);
-        //Creating the ArrayAdapter instance having the complaint list
-        ArrayAdapter aa2 = new ArrayAdapter(this,android.R.layout.simple_spinner_item,complaint);
+        Spinner spin2 = findViewById(R.id.select_part);
+        //Creating the ArrayAdapter instance having the part list
+        ArrayAdapter aa2 = new ArrayAdapter(this,android.R.layout.simple_spinner_item,part);
         aa2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         //Setting the ArrayAdapter data on the Spinner
         spin2.setAdapter(aa2);
@@ -104,8 +142,8 @@ public class ReportActivity extends AppCompatActivity  {
         spin1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                depselect = department[position];
-                Toast.makeText(ReportActivity.this, department[position], Toast.LENGTH_SHORT).show();
+                depselect = String.valueOf(depvalue[position]);
+                Log.e("departmentrelevant", String.valueOf(depselect));
             }
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
@@ -117,8 +155,8 @@ public class ReportActivity extends AppCompatActivity  {
         spin2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                compselect = complaint[position];
-                Toast.makeText(ReportActivity.this, complaint[position], Toast.LENGTH_SHORT).show();
+                partselect = String.valueOf(partvalue[position]);
+                Log.e("partrelevant", String.valueOf(partselect));
             }
 
 
@@ -130,20 +168,6 @@ public class ReportActivity extends AppCompatActivity  {
         });
     }
 
-//    void PostReport(){
-//        API.service().callUploadApi().enqueue(new APICallback<PostModel>() {
-//            @Override
-//            protected void onSuccess(PostModel postModel) {
-//
-//            }
-//
-//
-//            @Override
-//            protected void onError(BadRequest error) {
-//
-//            }
-//        });
-//    }
     //select image
     void imagechooser(){
         ImagePicker.with(this)

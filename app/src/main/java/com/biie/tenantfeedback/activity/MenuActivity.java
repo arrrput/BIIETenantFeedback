@@ -5,15 +5,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import com.biie.tenantfeedback.R;
 import com.biie.tenantfeedback.api.API;
-//import android.view.Menu;
-//import android.view.MenuInflater;
-//import android.view.MenuItem;
+import com.biie.tenantfeedback.api.APICallback;
+import com.biie.tenantfeedback.model.BadRequest;
+import com.biie.tenantfeedback.model.LogoutModel;
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -29,7 +30,7 @@ public class MenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (!API.isLogin()) {
-            startActivity(new Intent(getApplicationContext(), MenuActivity.class));
+            startActivity(new Intent(getApplicationContext(), MainActivity.class));
             finish();
         }
         setContentView(R.layout.activity_menu);
@@ -61,44 +62,28 @@ public class MenuActivity extends AppCompatActivity {
         action_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MenuActivity.this, MainActivity.class));
+                API.service().postLogout().enqueue(new APICallback<LogoutModel>() {
+                    @Override
+                    protected void onSuccess(LogoutModel logoutModel) {
+                        Toast.makeText(MenuActivity.this, logoutModel.getMetaLogout().getMessage(), Toast.LENGTH_SHORT).show();
+                        API.setCurrentUser(null);
+                        API.setIsLogin(false);
+                        API.setAccessToken("");
+
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        finish();
+                    }
+
+                    @Override
+                    protected void onError(BadRequest error) {
+                        API.setCurrentUser(null);
+                        API.setIsLogin(false);
+                        API.setAccessToken("");
+
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        finish();                    }
+                });
             }
         });
     }
 }
-
-
-//        @Override
-//        public boolean onCreateOptionsMenu(Menu menu) {
-//            // Inflate the menu; this adds items to the action bar if it is present.
-//            MenuInflater inflater = getMenuInflater();
-//            inflater.inflate(R.menu.menu_main, menu);
-//            // getMenuInflater().inflate(R.menu.menu_main, menu);
-//            return true;
-//        }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        // int id = item.getItemId();
-//        // noinspection SimplifiableIfStatement
-//        if (item.getItemId() == R.id.action_profile) {
-//            startActivity(new Intent(this, ProfileActivity.class));
-//        } else if (item.getItemId() == R.id.action_report) {
-//            startActivity(new Intent(this, ReportActivity.class));
-//        } else if (item.getItemId() == R.id.action_progress) {
-//            startActivity(new Intent(this,ProgressActivity.class));
-//        }
-//        return true;
-//        else if (item.getItemId() == R.id.action_settings) {
-//            startActivity(new Intent(this,));
-//        } else if (item.getItemId() == R.id.action_about) {
-//            startActivity(new Intent(this,));
-//        } else if (item.getItemId() == R.id.action_logout) {
-//            startActivity(new Intent(this,));
-//        }
-
-//        return super.onOptionsItemSelected(item);
-//    }

@@ -53,5 +53,10 @@
             android:layout_toEndOf="@id/idIVFeedImage"
             android:drawablePadding="2dp"
             android:text="@string/feed_time"/>
+        <Button
+            android:id="@+id/idIVFeedReport"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="@android:color/transparent" />
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

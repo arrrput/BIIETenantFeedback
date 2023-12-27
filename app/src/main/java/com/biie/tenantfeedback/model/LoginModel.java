@@ -5,25 +5,25 @@ import com.google.gson.annotations.SerializedName;
 public class LoginModel {
 
     @SerializedName("meta")
-    private MetaModel meta;
+    private MetaLoginModel metaLogin;
     @SerializedName("data")
-    private DataModel data;
+    private DataLoginModel dataLogin;
 
     public LoginModel(){}
 
-    public MetaModel getMeta() {
-        return meta;
+    public MetaLoginModel getMeta() {
+        return metaLogin;
     }
 
-    public void setMeta(MetaModel meta) {
-        this.meta = meta;
+    public void setMeta(MetaLoginModel metaLogin) {
+        this.metaLogin = metaLogin;
     }
 
-    public DataModel getData() {
-        return data;
+    public DataLoginModel getData() {
+        return dataLogin;
     }
 
-    public void setData(DataModel data) {
-        this.data = data;
+    public void setData(DataLoginModel dataLogin) {
+        this.dataLogin = dataLogin;
     }
 }

@@ -1,6 +1,7 @@
 package com.biie.tenantfeedback.api;
 
 import com.biie.tenantfeedback.model.LoginModel;
+import com.biie.tenantfeedback.model.LogoutModel;
 import com.biie.tenantfeedback.model.PostModel;
 import com.biie.tenantfeedback.model.ReqLogin;
 import com.biie.tenantfeedback.model.RequestModel;
@@ -22,19 +23,22 @@ public interface APIService {
     @POST("login")
     Call<LoginModel> postLogin(@Body ReqLogin u);
 
+    @POST("logout")
+    Call<LogoutModel> postLogout();
+
     @GET("my_request")
     Call<List <RequestModel>> getRequest(@Query("status") String status);
 
     @Multipart
     @POST("request/store")
     Call<PostModel> callUploadApi(@Part MultipartBody.Part image,
-                                  @Part("description") RequestBody description,
-                                  @Part("id_department") RequestBody id_department,
-                                  @Part("id_user") RequestBody id_user,
-                                  @Part("progress_request") RequestBody progress_request,
                                   @Part("lokasi") RequestBody lokasi,
                                   @Part("no_unit") RequestBody no_unit,
-                                  @Part("id_part") RequestBody id_part);
+                                  @Part("id_department") RequestBody id_department,
+                                  @Part("id_part") RequestBody id_part,
+                                  @Part("description") RequestBody description);
+
+
 
 
 }

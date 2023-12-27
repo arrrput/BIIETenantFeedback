@@ -2,22 +2,22 @@ package com.biie.tenantfeedback.model;
 
 public class ResponseLogin {
 
-    public DataModel dataModel;
-    public MetaModel metaModel;
+    public DataLoginModel dataloginModel;
+    public MetaLoginModel metaloginModel;
 
-    public DataModel targetData() {
-        return dataModel;
+    public DataLoginModel targetData() {
+        return dataloginModel;
     }
 
-    public void setData(DataModel dataModel) {
-        this.dataModel = dataModel;
+    public void setData(DataLoginModel dataloginModel) {
+        this.dataloginModel = dataloginModel;
     }
 
-    public MetaModel targetMeta() {
-        return metaModel;
+    public MetaLoginModel targetMeta() {
+        return metaloginModel;
     }
 
-    public void setMeta(MetaModel metaModel) {
-        this.metaModel = metaModel;
+    public void setMeta(MetaLoginModel metaloginModel) {
+        this.metaloginModel = metaloginModel;
     }
 }

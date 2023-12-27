@@ -150,9 +150,9 @@
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="20dp"
                         android:layout_marginBottom="10dp"
-                        android:text=" Complaint"
+                        android:text=" Part"
                         android:textColor="#228B22"
-                        android:title="Complaint" />
+                        android:title="Part" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -169,7 +169,7 @@
                         android:padding="15dp" />
 
                     <androidx.appcompat.widget.AppCompatSpinner
-                        android:id="@+id/select_complaint"
+                        android:id="@+id/select_part"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"

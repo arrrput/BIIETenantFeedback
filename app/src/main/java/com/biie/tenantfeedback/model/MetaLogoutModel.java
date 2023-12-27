@@ -1,6 +1,6 @@
 package com.biie.tenantfeedback.model;
 
-public class MetaModel {
+public class MetaLogoutModel {
 
     private int code;
     private String status;
