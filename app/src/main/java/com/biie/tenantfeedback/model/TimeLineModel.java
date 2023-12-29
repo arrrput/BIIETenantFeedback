@@ -1,40 +1,49 @@
 package com.biie.tenantfeedback.model;
 
 public class TimeLineModel {
-    private String name;
-    private String status;
-    private String description;
-    private String time;
+    private String TLimage;
+    private String TLname;
+    private String TLtime;
+    private String TLchat;
+    private String TLstatus;
 
-    public String getName() {
-        return name;
+    public String getTLimage() {
+        return TLimage;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTLimage(String TLimage) {
+        this.TLimage = TLimage;
     }
 
-    public String getStatus() {
-        return status;
+    public String getTLname() {
+        return TLname;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setTLname(String TLname) {
+        this.TLname = TLname;
     }
 
-    public String getDescription() {
-        return description;
+    public String getTLtime() {
+        return TLtime;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setTLtime(String TLtime) {
+        this.TLtime = TLtime;
     }
 
-    public String getTime() {
-        return time;
+    public String getTLchat() {
+        return TLchat;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setTLchat(String TLchat) {
+        this.TLchat = TLchat;
+    }
+
+    public String getTLstatus() {
+        return TLstatus;
+    }
+
+    public void setTLstatus(String TLstatus) {
+        this.TLstatus = TLstatus;
     }
 }

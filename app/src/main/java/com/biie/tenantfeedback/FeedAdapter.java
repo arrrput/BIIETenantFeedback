@@ -38,14 +38,14 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull FeedAdapter.ViewHolder holder, int position) {
         // to set data to textview and imageview of each card layout
         FeedModel model = feedModelArrayList.get(position);
-        holder.feedNameTV.setText(model.getFeed_name());
-        holder.feedTimeTV.setText(String.valueOf(model.getFeed_time().toString()));
+        holder.FeedName.setText(model.getFeed_name());
+        holder.FeedTime.setText(String.valueOf(model.getFeed_time().toString()));
 
 //        Timestamp ts = new Timestamp( model.getCreated_at());
 //        holder.feedIV.setImageResource(model.getFeed_image());
         Glide.with(context)
                 .load("http://192.168.68.139:8080/storage/img_progress/"+model.getFeed_image())
-                .into(holder.feedIV);
+                .into(holder.FeedImage);
     }
 
     @Override
@@ -56,15 +56,15 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
 
     // View holder class for initializing of your views such as TextView and Imageview
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        private final ImageView feedIV;
-        private final TextView feedNameTV;
-        private final TextView feedTimeTV;
+        private final ImageView FeedImage;
+        private final TextView FeedName;
+        private final TextView FeedTime;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            feedIV = itemView.findViewById(R.id.idIVFeedImage);
-            feedNameTV = itemView.findViewById(R.id.idTVFeedName);
-            feedTimeTV = itemView.findViewById(R.id.idTVFeedTime);
+            FeedImage = itemView.findViewById(R.id.FeedImage);
+            FeedName = itemView.findViewById(R.id.FeedName);
+            FeedTime = itemView.findViewById(R.id.FeedTime);
         }
     }
 }
