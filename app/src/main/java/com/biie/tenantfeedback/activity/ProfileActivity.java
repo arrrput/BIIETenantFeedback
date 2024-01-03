@@ -25,5 +25,11 @@ public class ProfileActivity extends AppCompatActivity {
                 startActivity(new Intent(ProfileActivity.this, CProfileActivity.class));
             }
         });
+
+        getProfilelist();
+    }
+
+    void getProfilelist(){
+
     }
 }

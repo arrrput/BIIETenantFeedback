@@ -45,7 +45,7 @@ public class CancelFragment extends Fragment {
             @Override
             protected void onSuccess(List<RequestModel> requestModels) {
                 for (int i = 0; i < requestModels.size(); i++){
-                    feedModelArrayList.add(new FeedModel(requestModels.get(i).getDescription(),
+                    feedModelArrayList.add(new FeedModel(requestModels.get(i).getId(),requestModels.get(i).getDescription(),
                             requestModels.get(i).getCreated_at(),requestModels.get(i).getImage()));
 
                 }

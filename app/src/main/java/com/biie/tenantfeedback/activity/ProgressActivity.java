@@ -1,24 +1,25 @@
 package com.biie.tenantfeedback.activity;
 
 import android.annotation.SuppressLint;
+import android.os.Bundle;
+import android.os.Handler;
+import android.widget.FrameLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
-import android.widget.FrameLayout;
+
 import com.biie.tenantfeedback.Dialog;
+import com.biie.tenantfeedback.R;
 import com.biie.tenantfeedback.fragment.CancelFragment;
 import com.biie.tenantfeedback.fragment.FeedFragment;
 import com.biie.tenantfeedback.fragment.FinishFragment;
 import com.biie.tenantfeedback.fragment.NotFragment;
 import com.biie.tenantfeedback.fragment.ProgressFragment;
-import com.biie.tenantfeedback.R;
 import com.google.android.material.tabs.TabLayout;
+
 import java.util.ArrayList;
 
 public class ProgressActivity extends AppCompatActivity {
@@ -41,7 +42,6 @@ public class ProgressActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_progress);
 
-
         tabLayout=findViewById(R.id.tab_layout);
         viewPager=findViewById(R.id.view_pager);
         frameLayout = findViewById(R.id.frame_layout);
@@ -53,20 +53,6 @@ public class ProgressActivity extends AppCompatActivity {
         fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         fragmentTransaction.commit();
 
-        // Initialize array list
-//        ArrayList<String> arrayList=new ArrayList<>(0);
-//
-//        // Add title in array list
-//        arrayList.add("Not Yet Accepted");
-//        arrayList.add("Progress");
-//        arrayList.add("Finished");
-//        arrayList.add("Canceled");
-//
-//        // Setup tab layout
-//        tabLayout.setupWithViewPager(viewPager);
-//
-//        // Prepare view pager
-//        prepareViewPager(viewPager,arrayList);
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
 
@@ -116,8 +102,8 @@ public class ProgressActivity extends AppCompatActivity {
             public void onTabReselected(TabLayout.Tab tab) {
 
             }
-
         });
+
     }
 
     private void prepareViewPager(ViewPager viewPager, ArrayList<String> arrayList) {
@@ -139,22 +125,7 @@ public class ProgressActivity extends AppCompatActivity {
                 break;
 
         }
-        // Use for loop
-//        for (int i = 0; i < arrayList.size(); i++) {
-//            // Initialize bundle
-//            Bundle bundle = new Bundle();
-//
-//            // Put title
-//            bundle.putString("title", arrayList.get(i));
-//
-//            // set argument
-//            progressFragment.setArguments(bundle);
-//
-//            // Add fragment
-//            adapter.addFragment(progressFragment, arrayList.get(i));
-//            progressFragment = new ProgressFragment();
-//        }
-        // set adapter
+
         viewPager.setAdapter(adapter);
     }
 }

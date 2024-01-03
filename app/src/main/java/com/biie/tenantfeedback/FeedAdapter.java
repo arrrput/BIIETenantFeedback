@@ -1,15 +1,18 @@
 package com.biie.tenantfeedback;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.biie.tenantfeedback.activity.TimeLineActivity;
 import com.biie.tenantfeedback.model.FeedModel;
 import com.bumptech.glide.Glide;
 
@@ -40,12 +43,17 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
         FeedModel model = feedModelArrayList.get(position);
         holder.FeedName.setText(model.getFeed_name());
         holder.FeedTime.setText(String.valueOf(model.getFeed_time().toString()));
-
-//        Timestamp ts = new Timestamp( model.getCreated_at());
-//        holder.feedIV.setImageResource(model.getFeed_image());
         Glide.with(context)
-                .load("http://192.168.68.139:8080/storage/img_progress/"+model.getFeed_image())
+                .load("http://192.168.68.126:8080/storage/img_progress/"+model.getFeed_image())
                 .into(holder.FeedImage);
+        holder.rLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, TimeLineActivity.class);
+                i.putExtra("ID", String.valueOf(model.getFeed_id()));
+                context.startActivity(i);
+            }
+        });
     }
 
     @Override
@@ -54,17 +62,21 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
         return feedModelArrayList.size();
     }
 
+
+
     // View holder class for initializing of your views such as TextView and Imageview
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final ImageView FeedImage;
         private final TextView FeedName;
         private final TextView FeedTime;
+        private final RelativeLayout rLayout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             FeedImage = itemView.findViewById(R.id.FeedImage);
             FeedName = itemView.findViewById(R.id.FeedName);
             FeedTime = itemView.findViewById(R.id.FeedTime);
+            rLayout = itemView.findViewById(R.id.r_layout);
         }
     }
 }
