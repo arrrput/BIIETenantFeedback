@@ -36,272 +36,262 @@
                 android:textColor="@android:color/white" />
         </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
-
-    <LinearLayout
-        android:layout_marginTop="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="120dp"
-        android:orientation="vertical">
-        <RelativeLayout
-            android:layout_width="match_parent"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="0dp">
-            <com.github.vipulasri.timelineview.TimelineView
-                android:layout_marginLeft="10dp"
-                android:id="@+id/TimelineLine1"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                app:endLineColor="@color/green"
-                app:linePadding="5dp"
-                app:lineWidth="3dp"
-                app:markerSize="20dp"
-                app:startLineColor="@color/green" />
+            android:orientation="vertical">
             <ImageView
-                android:id="@+id/TimelineImage1"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:id="@+id/ImageViewRequest"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
-                android:layout_toEndOf="@id/TimelineLine1"
                 android:contentDescription="@string/app_name"
                 android:padding="5dp" />
-            <TextView
-                android:id="@+id/TimelineName1"
-                android:layout_width="match_parent"
+            <Button
+                android:id="@+id/RatingFinish"
+                android:visibility="gone"
+                android:layout_width="200dp"
+                android:layout_gravity="center"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@id/TimelineImage1"
-                android:text="Timeline Name"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-            <TextView
-                android:id="@+id/TimelineTime1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/TimelineName1"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
-                android:layout_toEndOf="@id/TimelineImage1"
-                android:drawablePadding="2dp"
-                android:text="Timeline Time"
-                android:textSize="12sp" />
-            <TextView
-                android:id="@+id/TimelineChat1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/TimelineTime1"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_toEndOf="@id/TimelineImage1"
-                android:drawablePadding="2dp"
-                android:text="Timeline Chat"
-                android:textSize="15sp" />
-        </RelativeLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="120dp"
-        android:orientation="vertical">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="0dp">
-            <com.github.vipulasri.timelineview.TimelineView
-                android:layout_marginLeft="10dp"
-
-                android:id="@+id/TimelineLine2"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                app:endLineColor="@color/green"
-                app:linePadding="5dp"
-                app:lineWidth="3dp"
-                app:markerSize="20dp"
-                app:startLineColor="@color/green" />
-            <ImageView
-                android:id="@+id/TimelineImage2"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
-                android:layout_toEndOf="@id/TimelineLine2"
-                android:contentDescription="@string/app_name"
-                android:padding="5dp" />
-            <TextView
-                android:id="@+id/TimelineName2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:background="@drawable/rectangle_45"
+                android:text="Give your rating"/>
+            <LinearLayout
                 android:layout_marginTop="20dp"
-                android:layout_toEndOf="@id/TimelineImage2"
-                android:text="Timeline Name"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-            <TextView
-                android:id="@+id/TimelineTime2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/TimelineName2"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
-                android:layout_toEndOf="@id/TimelineImage2"
-                android:drawablePadding="2dp"
-                android:text="Timeline Time"
-                android:textSize="12sp" />
-            <TextView
-                android:id="@+id/TimelineChat2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/TimelineTime2"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_toEndOf="@id/TimelineImage2"
-                android:drawablePadding="2dp"
-                android:text="Timeline Chat"
-                android:textSize="15sp" />
-        </RelativeLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="120dp"
-        android:orientation="vertical">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="0dp">
-            <com.github.vipulasri.timelineview.TimelineView
-                android:layout_marginLeft="10dp"
-
-                android:id="@+id/TimelineLine3"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                app:endLineColor="@color/green"
-                app:linePadding="5dp"
-                app:lineWidth="3dp"
-                app:markerSize="20dp"
-                app:startLineColor="@color/green" />
-            <ImageView
-                android:id="@+id/TimelineImage3"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_toEndOf="@id/TimelineLine3"
-                android:contentDescription="@string/app_name"
-                android:padding="5dp" />
-            <TextView
-                android:id="@+id/TimelineName3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@id/TimelineImage3"
-                android:text="Timeline Name"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-            <TextView
-                android:id="@+id/TimelineTime3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/TimelineName3"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
-                android:layout_toEndOf="@id/TimelineImage3"
-                android:drawablePadding="2dp"
-                android:text="Timeline Time"
-                android:textSize="12sp" />
-            <TextView
-                android:id="@+id/TimelineChat3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/TimelineTime3"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_toEndOf="@id/TimelineImage3"
-                android:drawablePadding="2dp"
-                android:text="Timeline Chat"
-                android:textSize="15sp" />
-        </RelativeLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="120dp"
-        android:orientation="vertical">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="0dp">
-            <com.github.vipulasri.timelineview.TimelineView
-                android:layout_marginLeft="10dp"
-                android:id="@+id/TimelineLine4"
+                android:layout_height="120dp"
+                android:orientation="vertical">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    tools:layout_editor_absoluteX="0dp"
+                    tools:layout_editor_absoluteY="0dp">
+                    <com.github.vipulasri.timelineview.TimelineView
+                        android:layout_marginLeft="10dp"
+                        android:id="@+id/TimelineRequest"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        app:endLineColor="@color/green"
+                        app:linePadding="5dp"
+                        app:lineWidth="3dp"
+                        app:markerSize="20dp"
+                        app:startLineColor="@color/green" />
+                    <TextView
+                        android:id="@+id/NameRequest"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_toEndOf="@id/TimelineRequest"
+                        android:text="Timeline Name"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/TimeRequest"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/NameRequest"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_toEndOf="@id/TimelineRequest"
+                        android:drawablePadding="2dp"
+                        android:text="Timeline Time"
+                        android:textSize="12sp" />
+                    <TextView
+                        android:id="@+id/DescRequest"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/TimeRequest"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_toEndOf="@id/TimelineRequest"
+                        android:drawablePadding="2dp"
+                        android:text="Timeline Desc"
+                        android:textSize="15sp" />
+                </RelativeLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/Linear_response"
+                android:visibility="gone"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                app:endLineColor="@color/green"
-                app:linePadding="5dp"
-                app:lineWidth="3dp"
-                app:markerSize="20dp"
-                app:startLineColor="@color/green" />
-            <ImageView
-                android:id="@+id/TimelineImage4"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_toEndOf="@id/TimelineLine4"
-                android:contentDescription="@string/app_name"
-                android:padding="5dp" />
-            <TextView
-                android:id="@+id/TimelineName4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@id/TimelineImage4"
-                android:text="Timeline Name"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-            <TextView
-                android:id="@+id/TimelineTime4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/TimelineName4"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
-                android:layout_toEndOf="@id/TimelineImage4"
-                android:drawablePadding="2dp"
-                android:text="Timeline Time"
-                android:textSize="12sp" />
-            <TextView
-                android:id="@+id/TimelineChat4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/TimelineTime4"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_toEndOf="@id/TimelineImage4"
-                android:drawablePadding="2dp"
-                android:text="Timeline Chat"
-                android:textSize="15sp" />
-        </RelativeLayout>
-    </LinearLayout>
+                android:layout_height="120dp"
+                android:orientation="vertical">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    tools:layout_editor_absoluteX="0dp"
+                    tools:layout_editor_absoluteY="0dp">
+                    <com.github.vipulasri.timelineview.TimelineView
+                        android:layout_marginLeft="10dp"
+                        android:id="@+id/TimelineResponse"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        app:endLineColor="@color/green"
+                        app:linePadding="5dp"
+                        app:lineWidth="3dp"
+                        app:markerSize="20dp"
+                        app:startLineColor="@color/green" />
+                    <TextView
+                        android:id="@+id/NameResponse"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_toEndOf="@id/TimelineResponse"
+                        android:text="Timeline Name"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/TimeResponse"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/NameResponse"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_toEndOf="@id/TimelineResponse"
+                        android:drawablePadding="2dp"
+                        android:text="Timeline Time"
+                        android:textSize="12sp" />
+                    <TextView
+                        android:id="@+id/DescResponse"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/TimeResponse"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_toEndOf="@id/TimelineResponse"
+                        android:drawablePadding="2dp"
+                        android:text="Timeline Desc"
+                        android:textSize="15sp" />
+                </RelativeLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/Linear_progress"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="120dp"
+                android:orientation="vertical">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    tools:layout_editor_absoluteX="0dp"
+                    tools:layout_editor_absoluteY="0dp">
+                    <com.github.vipulasri.timelineview.TimelineView
+                        android:layout_marginLeft="10dp"
+                        android:id="@+id/TimelineProgress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        app:endLineColor="@color/green"
+                        app:linePadding="5dp"
+                        app:lineWidth="3dp"
+                        app:markerSize="20dp"
+                        app:startLineColor="@color/green" />
+                    <TextView
+                        android:id="@+id/NameProgress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_toEndOf="@id/TimelineProgress"
+                        android:text="Timeline Name"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/TimeProgress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/NameProgress"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_toEndOf="@id/TimelineProgress"
+                        android:drawablePadding="2dp"
+                        android:text="Timeline Time"
+                        android:textSize="12sp" />
+                    <TextView
+                        android:id="@+id/DescProgress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/TimeProgress"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_toEndOf="@id/TimelineProgress"
+                        android:drawablePadding="2dp"
+                        android:text="Timeline Desc"
+                        android:textSize="15sp" />
+                </RelativeLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/Linear_finish"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="120dp"
+                android:orientation="vertical">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    tools:layout_editor_absoluteX="0dp"
+                    tools:layout_editor_absoluteY="0dp">
+                    <com.github.vipulasri.timelineview.TimelineView
+                        android:layout_marginLeft="10dp"
+                        android:id="@+id/TimelineFinish"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        app:endLineColor="@color/green"
+                        app:linePadding="5dp"
+                        app:lineWidth="3dp"
+                        app:markerSize="20dp"
+                        app:startLineColor="@color/green" />
+                    <TextView
+                        android:id="@+id/NameFinish"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_toEndOf="@id/TimelineFinish"
+                        android:text="Timeline Name"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/TimeFinish"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/NameFinish"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_toEndOf="@id/TimelineFinish"
+                        android:drawablePadding="2dp"
+                        android:text="Timeline Time"
+                        android:textSize="12sp" />
+                    <TextView
+                        android:id="@+id/DescFinish"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/TimeFinish"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_toEndOf="@id/TimelineFinish"
+                        android:drawablePadding="2dp"
+                        android:text="Timeline Desc"
+                        android:textSize="15sp" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

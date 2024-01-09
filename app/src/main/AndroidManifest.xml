@@ -41,6 +41,11 @@
             android:label="@string/app_name"
             android:theme="@style/Theme.TenantFeedback.NoActionBar"/>
         <activity
+            android:name=".activity.RatingActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.TenantFeedback.NoActionBar"/>
+        <activity
             android:name=".activity.ProfileActivity"
             android:exported="true"
             android:label="@string/app_name"

@@ -21,7 +21,7 @@ import com.biie.tenantfeedback.model.RequestModel;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CancelFragment extends Fragment {
+public class ResponseFragment extends Fragment {
     // Initialize variable
     RecyclerView feedRV;
     ArrayList<FeedModel> feedModelArrayList = new ArrayList<FeedModel>();
@@ -30,18 +30,18 @@ public class CancelFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Initialize view
-        View view =inflater.inflate(R.layout.fragment_cancel, container, false);
+        View view =inflater.inflate(R.layout.fragment_response, container, false);
 
-        feedRV = view.findViewById(R.id.idRVCancel);
+        feedRV = view.findViewById(R.id.idRVResponse);
 
-        getCancelRequest();
+        getResponseRequest();
 
         return view;
     }
 
-    void getCancelRequest(){
+    void getResponseRequest(){
 
-        API.service().getRequest("0").enqueue(new APICallback<List<RequestModel>>() {
+        API.service().getRequest("2").enqueue(new APICallback<List<RequestModel>>() {
             @Override
             protected void onSuccess(List<RequestModel> requestModels) {
                 for (int i = 0; i < requestModels.size(); i++){

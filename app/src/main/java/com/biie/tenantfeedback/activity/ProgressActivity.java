@@ -13,11 +13,11 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.biie.tenantfeedback.Dialog;
 import com.biie.tenantfeedback.R;
-import com.biie.tenantfeedback.fragment.CancelFragment;
 import com.biie.tenantfeedback.fragment.FeedFragment;
 import com.biie.tenantfeedback.fragment.FinishFragment;
 import com.biie.tenantfeedback.fragment.NotFragment;
 import com.biie.tenantfeedback.fragment.ProgressFragment;
+import com.biie.tenantfeedback.fragment.ResponseFragment;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -76,15 +76,14 @@ public class ProgressActivity extends AppCompatActivity {
                         fragment = new NotFragment();
                         break;
                     case 1:
-                        fragment = new FeedFragment();
+                        fragment = new ResponseFragment();
                         break;
                     case 2:
-                        fragment = new FinishFragment();
+                        fragment = new FeedFragment();
                         break;
                     case 3:
-                        fragment = new CancelFragment();
+                        fragment = new FinishFragment();
                         break;
-
                 }
                 FragmentManager fm = getSupportFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();

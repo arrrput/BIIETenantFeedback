@@ -1,21 +1,42 @@
 package com.biie.tenantfeedback.activity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.biie.tenantfeedback.R;
+import com.biie.tenantfeedback.api.API;
+import com.biie.tenantfeedback.api.APICallback;
+import com.biie.tenantfeedback.model.BadRequest;
+import com.biie.tenantfeedback.model.TimeLineModel;
+import com.bumptech.glide.Glide;
+
 
 public class TimeLineActivity extends AppCompatActivity {
+
+    String newTimeline;
+    LinearLayout linear_response, linear_progress, linear_finish;
+    ImageView imageRequest;
+    TextView nameRequest, timeRequest, descRequest;
+    TextView nameResponse, timeResponse, descResponse;
+    TextView nameProgress, timeProgress, descProgress;
+    TextView nameFinish, timeFinish, descFinish;
+    Button rateFinish;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
 
-        String newTimeline;
         if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
             if(extras == null) {
@@ -31,11 +52,95 @@ public class TimeLineActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_timeline);
 
+        linear_response = findViewById(R.id.Linear_response);
+        linear_progress = findViewById(R.id.Linear_progress);
+        linear_finish = findViewById(R.id.Linear_finish);
+
+        imageRequest = findViewById(R.id.ImageViewRequest);
+        nameRequest = findViewById(R.id.NameRequest);
+        timeRequest = findViewById(R.id.TimeRequest);
+        descRequest = findViewById(R.id.DescRequest);
+
+        nameResponse = findViewById(R.id.NameResponse);
+        timeResponse = findViewById(R.id.TimeResponse);
+        descResponse = findViewById(R.id.DescResponse);
+
+        nameProgress = findViewById(R.id.NameProgress);
+        timeProgress = findViewById(R.id.TimeProgress);
+        descProgress = findViewById(R.id.DescProgress);
+
+        rateFinish = findViewById(R.id.RatingFinish);
+        nameFinish = findViewById(R.id.NameFinish);
+        timeFinish = findViewById(R.id.TimeFinish);
+        descFinish = findViewById(R.id.DescFinish);
+
         getTimeline();
 
     }
 
     void getTimeline(){
+        API.service().getTimeline(newTimeline).enqueue(new APICallback<TimeLineModel>() {
+            @Override
+            protected void onSuccess(TimeLineModel timeLineModel) {
+                Glide.with(getApplicationContext())
+                        .load("http://192.168.68.122:8080/storage/img_progress/"+timeLineModel.getImage_request())
+                        .into(imageRequest);
+                nameRequest.setText(timeLineModel.getUsername());
+                timeRequest.setText(timeLineModel.getRequests_created_at());
+                descRequest.setText(timeLineModel.getUser_desc());
+
+                if (timeLineModel.getStatus() == 2){
+                    linear_response.setVisibility(View.VISIBLE);
+                    nameResponse.setText(timeLineModel.getDept_response());
+                    timeResponse.setText(timeLineModel.getResponse_created_at());
+                    descResponse.setText(timeLineModel.getResponse_desc());
+                }
+                else if (timeLineModel.getStatus() == 3){
+                    linear_response.setVisibility(View.VISIBLE);
+                    nameResponse.setText(timeLineModel.getDept_response());
+                    timeResponse.setText(timeLineModel.getResponse_created_at());
+                    descResponse.setText(timeLineModel.getResponse_desc());
+
+                    linear_progress.setVisibility(View.VISIBLE);
+                    nameProgress.setText(timeLineModel.getDept_response());
+                    timeProgress.setText(timeLineModel.getProgress_created_at());
+                    descProgress.setText(timeLineModel.getProgress_desc());
+                }
+                else if (timeLineModel.getStatus() == 4){
+
+
+                    linear_response.setVisibility(View.VISIBLE);
+                    nameResponse.setText(timeLineModel.getDept_response());
+                    timeResponse.setText(timeLineModel.getResponse_created_at());
+                    descResponse.setText(timeLineModel.getResponse_desc());
+
+                    linear_progress.setVisibility(View.VISIBLE);
+                    nameProgress.setText(timeLineModel.getDept_response());
+                    timeProgress.setText(timeLineModel.getProgress_created_at());
+                    descProgress.setText(timeLineModel.getProgress_desc());
+
+                    linear_finish.setVisibility(View.VISIBLE);
+                    nameFinish.setText(timeLineModel.getDept_response());
+                    timeFinish.setText(timeLineModel.getFinish_created_at());
+                    descFinish.setText(timeLineModel.getFinish_desc());
+
+                    rateFinish.setVisibility(View.VISIBLE);
+                    rateFinish.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            startActivity(new Intent(TimeLineActivity.this, RatingActivity.class));
+                        }
+                    });
+
+                }
+                else {}
+            }
+
+            @Override
+            protected void onError(BadRequest error) {
+
+            }
+        });
 
     }
 }
