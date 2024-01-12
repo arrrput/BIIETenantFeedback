@@ -66,6 +66,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:layout_gravity="center" />
+
                 <Button
                     android:id="@+id/Reportinput_image"
                     android:layout_width="150dp"
@@ -75,10 +76,12 @@
                     android:layout_marginBottom="5dp"
                     android:background="@drawable/rectangle_45"
                     android:text="Select Image" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <TextView
                         android:layout_width="170dp"
                         android:layout_height="wrap_content"
@@ -104,11 +107,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <com.google.android.material.textfield.TextInputLayout
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:hint="Enter your location">
+
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/input_location"
                             android:layout_width="match_parent"
@@ -119,8 +124,9 @@
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Enter your no. unit"
-                        android:layout_marginStart="10dp">
+                        android:layout_marginStart="10dp"
+                        android:hint="Enter your no. unit">
+
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/input_nounit"
                             android:layout_width="match_parent"
@@ -132,6 +138,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <TextView
                         android:layout_width="170dp"
                         android:layout_height="wrap_content"
@@ -190,6 +197,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Enter your description">
+
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/input_desc"
                         android:layout_width="match_parent"

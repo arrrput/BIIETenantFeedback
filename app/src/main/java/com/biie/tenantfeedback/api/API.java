@@ -21,7 +21,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class API {
 
-    public static final String ROOT_URL = "http://192.168.68.122:8080/api/";
+    public static final String ROOT_URL = "http://192.168.68.123:8080/api/";
     private static final String AUTHORIZATION = "Authorization";
     private static final boolean PRINT_DELAY = false;
     private static final boolean INTRO = false;

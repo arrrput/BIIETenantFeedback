@@ -3,6 +3,7 @@ package com.biie.tenantfeedback.api;
 import com.biie.tenantfeedback.model.LoginModel;
 import com.biie.tenantfeedback.model.LogoutModel;
 import com.biie.tenantfeedback.model.PostModel;
+import com.biie.tenantfeedback.model.RatingModel;
 import com.biie.tenantfeedback.model.ReqLogin;
 import com.biie.tenantfeedback.model.RequestModel;
 import com.biie.tenantfeedback.model.TimeLineModel;
@@ -33,6 +34,10 @@ public interface APIService {
 
     @GET("request/{id}/timeline")
     Call<TimeLineModel> getTimeline(@Path("id") String id);
+
+    @POST("rating")
+    Call<PostModel> postRating(@Body RatingModel ratingModel);
+
 
     @Multipart
     @POST("request/store")

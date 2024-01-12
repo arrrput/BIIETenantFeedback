@@ -8,7 +8,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -48,8 +47,6 @@ public class TimeLineActivity extends AppCompatActivity {
             newTimeline= (String) savedInstanceState.getSerializable("ID");
         }
 
-        Toast.makeText(this, newTimeline, Toast.LENGTH_SHORT).show();
-
         setContentView(R.layout.activity_timeline);
 
         linear_response = findViewById(R.id.Linear_response);
@@ -83,7 +80,7 @@ public class TimeLineActivity extends AppCompatActivity {
             @Override
             protected void onSuccess(TimeLineModel timeLineModel) {
                 Glide.with(getApplicationContext())
-                        .load("http://192.168.68.122:8080/storage/img_progress/"+timeLineModel.getImage_request())
+                        .load("http://192.168.68.123:8080/storage/img_progress/"+timeLineModel.getImage_request())
                         .into(imageRequest);
                 nameRequest.setText(timeLineModel.getUsername());
                 timeRequest.setText(timeLineModel.getRequests_created_at());
@@ -107,8 +104,6 @@ public class TimeLineActivity extends AppCompatActivity {
                     descProgress.setText(timeLineModel.getProgress_desc());
                 }
                 else if (timeLineModel.getStatus() == 4){
-
-
                     linear_response.setVisibility(View.VISIBLE);
                     nameResponse.setText(timeLineModel.getDept_response());
                     timeResponse.setText(timeLineModel.getResponse_created_at());
@@ -124,11 +119,14 @@ public class TimeLineActivity extends AppCompatActivity {
                     timeFinish.setText(timeLineModel.getFinish_created_at());
                     descFinish.setText(timeLineModel.getFinish_desc());
 
+
                     rateFinish.setVisibility(View.VISIBLE);
                     rateFinish.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            startActivity(new Intent(TimeLineActivity.this, RatingActivity.class));
+                            Intent i = new Intent(getApplicationContext(), RatingActivity.class);
+                            i.putExtra("ID", String.valueOf(newTimeline));
+                            startActivity(i);
                         }
                     });
 
