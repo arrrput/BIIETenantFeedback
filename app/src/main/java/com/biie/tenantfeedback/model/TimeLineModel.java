@@ -13,6 +13,7 @@ public class TimeLineModel {
     private String progress_desc;
     private String finish_created_at;
     private String finish_desc;
+    private int status_rate;
 
     public int getStatus() {
         return status;
@@ -111,4 +112,11 @@ public class TimeLineModel {
     }
 
 
+    public int getStatus_rate() {
+        return status_rate;
+    }
+
+    public void setStatus_rate(int status_rate) {
+        this.status_rate = status_rate;
+    }
 }

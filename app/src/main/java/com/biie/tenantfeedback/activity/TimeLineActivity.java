@@ -29,6 +29,7 @@ public class TimeLineActivity extends AppCompatActivity {
     TextView nameProgress, timeProgress, descProgress;
     TextView nameFinish, timeFinish, descFinish;
     Button rateFinish;
+    TextView commentView;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -67,6 +68,7 @@ public class TimeLineActivity extends AppCompatActivity {
         descProgress = findViewById(R.id.DescProgress);
 
         rateFinish = findViewById(R.id.RatingFinish);
+        commentView = findViewById(R.id.CommentView);
         nameFinish = findViewById(R.id.NameFinish);
         timeFinish = findViewById(R.id.TimeFinish);
         descFinish = findViewById(R.id.DescFinish);
@@ -79,8 +81,9 @@ public class TimeLineActivity extends AppCompatActivity {
         API.service().getTimeline(newTimeline).enqueue(new APICallback<TimeLineModel>() {
             @Override
             protected void onSuccess(TimeLineModel timeLineModel) {
+
                 Glide.with(getApplicationContext())
-                        .load("http://192.168.68.123:8080/storage/img_progress/"+timeLineModel.getImage_request())
+                        .load("http://192.168.68.122:8080/storage/img_progress/"+timeLineModel.getImage_request())
                         .into(imageRequest);
                 nameRequest.setText(timeLineModel.getUsername());
                 timeRequest.setText(timeLineModel.getRequests_created_at());
@@ -104,6 +107,18 @@ public class TimeLineActivity extends AppCompatActivity {
                     descProgress.setText(timeLineModel.getProgress_desc());
                 }
                 else if (timeLineModel.getStatus() == 4){
+
+//                    RatingModel ratingModel = new RatingModel();
+//                    commentView.setText(ratingModel.getMessage());
+
+                    if(timeLineModel.getStatus_rate() == 1){
+                        rateFinish.setVisibility(View.GONE);
+                    }
+                    else{
+                        rateFinish.setVisibility(View.VISIBLE);
+                    }
+
+
                     linear_response.setVisibility(View.VISIBLE);
                     nameResponse.setText(timeLineModel.getDept_response());
                     timeResponse.setText(timeLineModel.getResponse_created_at());
@@ -119,8 +134,6 @@ public class TimeLineActivity extends AppCompatActivity {
                     timeFinish.setText(timeLineModel.getFinish_created_at());
                     descFinish.setText(timeLineModel.getFinish_desc());
 
-
-                    rateFinish.setVisibility(View.VISIBLE);
                     rateFinish.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {

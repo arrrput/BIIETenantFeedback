@@ -65,6 +65,16 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/rectangle_45"
                 android:text="Give your rating"/>
+            <TextView
+                android:id="@+id/CommentView"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textColorHint="@color/green"
+                android:textColor="@android:color/background_dark"
+                android:textSize="24sp"
+                android:layout_gravity="center" />
             <LinearLayout
                 android:layout_marginTop="20dp"
                 android:layout_width="wrap_content"

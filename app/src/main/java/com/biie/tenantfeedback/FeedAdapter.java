@@ -44,7 +44,7 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
         holder.FeedName.setText(model.getFeed_name());
         holder.FeedTime.setText(String.valueOf(model.getFeed_time().toString()));
         Glide.with(context)
-                .load("http://192.168.68.123:8080/storage/img_progress/"+model.getFeed_image())
+                .load("http://192.168.68.122:8080/storage/img_progress/"+model.getFeed_image())
                 .into(holder.FeedImage);
         holder.rLayout.setOnClickListener(new View.OnClickListener() {
             @Override
