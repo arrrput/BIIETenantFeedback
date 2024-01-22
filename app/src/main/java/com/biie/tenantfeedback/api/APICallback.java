@@ -7,9 +7,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-/**
- * Created by Ari Putra on 2/25/2018.
- */
 public abstract class APICallback<T> implements Callback<T> {
 
     @Deprecated

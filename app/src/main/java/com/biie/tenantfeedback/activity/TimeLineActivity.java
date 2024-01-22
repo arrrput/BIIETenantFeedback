@@ -83,7 +83,7 @@ public class TimeLineActivity extends AppCompatActivity {
             protected void onSuccess(TimeLineModel timeLineModel) {
 
                 Glide.with(getApplicationContext())
-                        .load("http://192.168.68.122:8080/storage/img_progress/"+timeLineModel.getImage_request())
+                        .load("http://192.168.68.127:8080/storage/img_progress/"+timeLineModel.getImage_request())
                         .into(imageRequest);
                 nameRequest.setText(timeLineModel.getUsername());
                 timeRequest.setText(timeLineModel.getRequests_created_at());
