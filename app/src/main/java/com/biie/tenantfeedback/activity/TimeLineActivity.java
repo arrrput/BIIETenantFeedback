@@ -23,7 +23,7 @@ public class TimeLineActivity extends AppCompatActivity {
 
     String newTimeline;
     LinearLayout linear_response, linear_progress, linear_finish;
-    ImageView imageRequest;
+    ImageView imageRequest, imageProgress, imageFinished;
     TextView nameRequest, timeRequest, descRequest;
     TextView nameResponse, timeResponse, descResponse;
     TextView nameProgress, timeProgress, descProgress;
@@ -66,7 +66,9 @@ public class TimeLineActivity extends AppCompatActivity {
         nameProgress = findViewById(R.id.NameProgress);
         timeProgress = findViewById(R.id.TimeProgress);
         descProgress = findViewById(R.id.DescProgress);
+        imageProgress = findViewById(R.id.imageProgress);
 
+        imageFinished = findViewById(R.id.imageFinished);
         rateFinish = findViewById(R.id.RatingFinish);
         commentView = findViewById(R.id.CommentView);
         nameFinish = findViewById(R.id.NameFinish);
@@ -83,8 +85,17 @@ public class TimeLineActivity extends AppCompatActivity {
             protected void onSuccess(TimeLineModel timeLineModel) {
 
                 Glide.with(getApplicationContext())
-                        .load("http://192.168.68.127:8080/storage/img_progress/"+timeLineModel.getImage_request())
+                        .load("http://192.168.68.114:8080/storage/img_progress/"+timeLineModel.getImage_request())
                         .into(imageRequest);
+                imageRequest.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent i = new Intent(getApplicationContext(),TLImageActivity.class);
+                        i.putExtra("ID","http://192.168.68.114:8080/storage/img_progress/"+timeLineModel.getImage_request());
+                        startActivity(i);
+                    }
+                });
+
                 nameRequest.setText(timeLineModel.getUsername());
                 timeRequest.setText(timeLineModel.getRequests_created_at());
                 descRequest.setText(timeLineModel.getUser_desc());
@@ -101,10 +112,21 @@ public class TimeLineActivity extends AppCompatActivity {
                     timeResponse.setText(timeLineModel.getResponse_created_at());
                     descResponse.setText(timeLineModel.getResponse_desc());
 
+                    Glide.with(getApplicationContext())
+                            .load("http://192.168.68.114:8080/storage/img_progress/"+timeLineModel.getImage_pg())
+                            .into(imageProgress);
                     linear_progress.setVisibility(View.VISIBLE);
                     nameProgress.setText(timeLineModel.getDept_response());
                     timeProgress.setText(timeLineModel.getProgress_created_at());
                     descProgress.setText(timeLineModel.getProgress_desc());
+                    imageProgress.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent i = new Intent(getApplicationContext(),TLImageActivity.class);
+                            i.putExtra("ID","http://192.168.68.114:8080/storage/img_progress/"+timeLineModel.getImage_pg());
+                            startActivity(i);
+                        }
+                    });
                 }
                 else if (timeLineModel.getStatus() == 4){
 
@@ -118,17 +140,39 @@ public class TimeLineActivity extends AppCompatActivity {
                         rateFinish.setVisibility(View.VISIBLE);
                     }
 
-
                     linear_response.setVisibility(View.VISIBLE);
                     nameResponse.setText(timeLineModel.getDept_response());
                     timeResponse.setText(timeLineModel.getResponse_created_at());
                     descResponse.setText(timeLineModel.getResponse_desc());
 
+                    Glide.with(getApplicationContext())
+                            .load("http://192.168.68.114:8080/storage/img_progress/"+timeLineModel.getImage_pg())
+                            .into(imageProgress);
                     linear_progress.setVisibility(View.VISIBLE);
+                    imageProgress.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent i = new Intent(getApplicationContext(),TLImageActivity.class);
+                            i.putExtra("ID","http://192.168.68.114:8080/storage/img_progress/"+timeLineModel.getImage_pg());
+                            startActivity(i);
+                        }
+                    });
                     nameProgress.setText(timeLineModel.getDept_response());
                     timeProgress.setText(timeLineModel.getProgress_created_at());
                     descProgress.setText(timeLineModel.getProgress_desc());
 
+                    Glide.with(getApplicationContext())
+                            .load("http://192.168.68.114:8080/storage/img_finish/"+timeLineModel.getImage_finish())
+                            .into(imageFinished);
+
+                    imageFinished.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent i = new Intent(getApplicationContext(),TLImageActivity.class);
+                            i.putExtra("ID","http://192.168.68.114:8080/storage/img_finish/"+timeLineModel.getImage_finish());
+                            startActivity(i);
+                        }
+                    });
                     linear_finish.setVisibility(View.VISIBLE);
                     nameFinish.setText(timeLineModel.getDept_response());
                     timeFinish.setText(timeLineModel.getFinish_created_at());

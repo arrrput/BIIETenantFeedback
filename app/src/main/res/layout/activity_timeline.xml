@@ -210,14 +210,25 @@
                         app:lineWidth="3dp"
                         app:markerSize="20dp"
                         app:startLineColor="@color/green" />
+                    <ImageView
+                        android:id="@+id/imageProgress"
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_toEndOf="@id/TimelineProgress"
+                        android:contentDescription="@string/app_name"
+                        android:padding="5dp" />
                     <TextView
                         android:id="@+id/NameProgress"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="20dp"
-                        android:layout_toEndOf="@id/TimelineProgress"
                         android:text="Timeline Name"
+                        android:layout_toEndOf="@id/imageProgress"
                         android:textColor="@color/black"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -228,7 +239,7 @@
                         android:layout_below="@id/NameProgress"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="5dp"
-                        android:layout_toEndOf="@id/TimelineProgress"
+                        android:layout_toEndOf="@id/imageProgress"
                         android:drawablePadding="2dp"
                         android:text="Timeline Time"
                         android:textSize="12sp" />
@@ -239,10 +250,11 @@
                         android:layout_below="@id/TimeProgress"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="10dp"
-                        android:layout_toEndOf="@id/TimelineProgress"
+                        android:layout_toEndOf="@id/imageProgress"
                         android:drawablePadding="2dp"
                         android:text="Timeline Desc"
                         android:textSize="15sp" />
+
                 </RelativeLayout>
             </LinearLayout>
             <LinearLayout
@@ -267,13 +279,24 @@
                         app:lineWidth="3dp"
                         app:markerSize="20dp"
                         app:startLineColor="@color/green" />
+                    <ImageView
+                        android:id="@+id/imageFinished"
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_toEndOf="@id/TimelineFinish"
+                        android:contentDescription="@string/app_name"
+                        android:padding="5dp" />
                     <TextView
                         android:id="@+id/NameFinish"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="20dp"
-                        android:layout_toEndOf="@id/TimelineFinish"
+                        android:layout_toEndOf="@id/imageFinished"
                         android:text="Timeline Name"
                         android:textColor="@color/black"
                         android:textSize="18sp"
@@ -285,7 +308,7 @@
                         android:layout_below="@id/NameFinish"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="5dp"
-                        android:layout_toEndOf="@id/TimelineFinish"
+                        android:layout_toEndOf="@id/imageFinished"
                         android:drawablePadding="2dp"
                         android:text="Timeline Time"
                         android:textSize="12sp" />
@@ -296,7 +319,7 @@
                         android:layout_below="@id/TimeFinish"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="10dp"
-                        android:layout_toEndOf="@id/TimelineFinish"
+                        android:layout_toEndOf="@id/imageFinished"
                         android:drawablePadding="2dp"
                         android:text="Timeline Desc"
                         android:textSize="15sp" />

@@ -14,6 +14,8 @@ public class TimeLineModel {
     private String finish_created_at;
     private String finish_desc;
     private int status_rate;
+    private String image_pg;
+    private String image_finish;
 
     public int getStatus() {
         return status;
@@ -118,5 +120,21 @@ public class TimeLineModel {
 
     public void setStatus_rate(int status_rate) {
         this.status_rate = status_rate;
+    }
+
+    public String getImage_pg() {
+        return image_pg;
+    }
+
+    public void setImage_pg(String image_pg) {
+        this.image_pg = image_pg;
+    }
+
+    public String getImage_finish() {
+        return image_finish;
+    }
+
+    public void setImage_finish(String image_finish) {
+        this.image_finish = image_finish;
     }
 }
